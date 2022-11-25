@@ -16,6 +16,7 @@ public class Controller {
 
     public void printMenu() {
         String printString = menuHeader + "\n";
+        printString = leadText;
         for (int i = 0; i < menuItems.length; i++) printString += menuItems[i] + "\n";
         System.out.println("\n" + printString);
     }
