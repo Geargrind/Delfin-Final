@@ -25,11 +25,11 @@ public class Main {
                     keepRunning = false;
                     break;
                 default:
-                    System.out.println("Please enter a number");
-
+                    System.err.println("Please enter a number");
             }
         } while (keepRunning);
     }
+
         public static void main (String[]args){
             new Main().run();
         }
