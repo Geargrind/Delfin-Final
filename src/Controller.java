@@ -1,14 +1,13 @@
 import java.util.Scanner;
 
-public class Menu {
+public class Controller {
 
-    String Hello = "Hello!";
     private String menuHeader;
     private String leadText;
     private String[] menuItems;
 
 
-    public Menu(String menuHeader, String leadText, String[] menuItems) {
+    public Controller(String menuHeader, String leadText, String[] menuItems) {
         this.menuHeader = menuHeader;
         this.leadText = leadText;
         this.menuItems = menuItems;
