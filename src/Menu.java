@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Menu {
 
-
+    String Hello = "Hello!";
     private String menuHeader;
     private String leadText;
     private String[] menuItems;
