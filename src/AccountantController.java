@@ -5,10 +5,7 @@ public class accountantController {
     private int priceJunior = 1000;
     private int priceSenior = 1600;
 
-    private int pensionerAge = 60;
-    private double pensionerDiscount = 0.75;
-    private double pricePensioner = 1600 * pensionerDiscount;
-    private int pricePassiveMember = 500;
+  
 
  
     }
