@@ -7,8 +7,8 @@ public abstract class Member {
     private boolean active;
     private double debt;
 
-    private double balance;
-    private Calendar calendar;
+    private int balance;
+    private int year = Calendar.getInstance().get(Calendar.YEAR);
 
     public void Member(String name, int yeaOfBirth){
         setName("");
@@ -47,22 +47,22 @@ public abstract class Member {
         this.debt = debt;
     }
 
-    public double getBalance() {
+    public int getBalance() {
         return balance;
     }
 
-    public void setBalance(double balance) {
+    public void setBalance(int balance) {
         this.balance = balance;
     }
 
     public void membership(){
-        if(((calendar.get(Calendar.YEAR) - yeaOfBirth) > 18) && active){
+        if((year - yeaOfBirth) > 18 && active){
             setBalance(1600);
-        }else if(calendar.get(Calendar.YEAR) - yeaOfBirth < 18 && active) {
+        }else if(year - yeaOfBirth < 18 && active) {
             setBalance(1000);
-        }else if(calendar.get(Calendar.YEAR) - yeaOfBirth >= 60 && active) {
+        }else if(year - yeaOfBirth >= 60 && active) {
             setBalance(1200);
-        }else if(calendar.get(Calendar.YEAR) - yeaOfBirth >= 60 && !active){
+        }else if(year - yeaOfBirth >= 60 && !active){
             setBalance(375);
         }else{
             setBalance(500);
@@ -110,5 +110,13 @@ public abstract class Member {
             }
         }
         return choice2;
+    }
+
+    public String membershipType(){
+        if(isActive()){
+            return "Active";
+        }else{
+            return "Passive";
+        }
     }
 }
