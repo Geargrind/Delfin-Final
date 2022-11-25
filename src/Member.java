@@ -56,7 +56,7 @@ public abstract class Member {
     }
 
     public void membership(){
-        if((year - yeaOfBirth) > 18 && active){
+        if((year - yeaOfBirth) > 18 && year - yeaOfBirth < 60 &&  active){
             setBalance(1600);
         }else if(year - yeaOfBirth < 18 && active) {
             setBalance(1000);
