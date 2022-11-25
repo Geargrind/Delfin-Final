@@ -11,10 +11,12 @@ public class Main {
         boolean keepRunning = true;
         Controller controller = new Controller("MENU", "" +
                 "Welcome to the dolphins swimclub!\n\nPlease choose an option:\n", menuItems);
+        ChairmanController chairman = new ChairmanController();
         do {
             controller.printMenu();
             switch (controller.readInt()) {
                 case 1:
+                    chairman.registerMember();
                     break;
                 case 2:
                     break;
