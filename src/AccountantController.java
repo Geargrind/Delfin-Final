@@ -10,10 +10,5 @@ public class accountantController {
     private double pricePensioner = 1600 * pensionerDiscount;
     private int pricePassiveMember = 500;
 
-    private ChairmanController chairmanController;
-    private UserInterface userinterface;
-
-    public void setChairmanController(ChairmanController chairmanController) {
-        this.chairmanController = chairmanController;
-
+ 
     }
