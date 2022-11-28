@@ -8,7 +8,6 @@ public abstract class Member {
     private double debt;
 
     //Hej
-    //HEjsa
     private int balance;
     private int year = Calendar.getInstance().get(Calendar.YEAR);
 
