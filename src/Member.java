@@ -7,6 +7,7 @@ public abstract class Member {
     private boolean active;
     private double debt;
 
+    //Hej
     private int balance;
     private int year = Calendar.getInstance().get(Calendar.YEAR);
 
