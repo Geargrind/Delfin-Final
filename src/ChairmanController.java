@@ -6,11 +6,10 @@ public class ChairmanController {
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
         switch (readInt()){
             case 1:
-
                 createMotionist();
                 break;
             case 2:
-
+                createCompetitiveSwimmer();
                 break;
             }
         }
@@ -18,7 +17,24 @@ public class ChairmanController {
 
 
         public void createCompetitiveSwimmer(){
-           // CompetitiveSwimmer
+            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999,  12);
+            System.out.println("Please enter name:");
+            competitiveSwimmer.setName(readString());
+            System.out.println("Please enter year of birth: ");
+            competitiveSwimmer.setYearOfBirth(readInt());
+            competitiveSwimmer.whichMembership();
+            competitiveSwimmer.membership();
+            competitiveSwimmer.chooseDiscipline();
+            System.out.println("----RECEIPT----");
+            System.out.printf("Chosen disciplines:\nBreast swimming: " +
+                            "%b\nCrawl: %b\nButterfly: %b\n\n\n", competitiveSwimmer.isSwimmingBreast(),
+                    competitiveSwimmer.isSwimmingCrawl()
+            , competitiveSwimmer.isSwimmingButterfly());
+
+            System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
+                    competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
+                    competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance());
+            competitiveSwimmer.yesOrNo();
         }
 
         public void createMotionist(){

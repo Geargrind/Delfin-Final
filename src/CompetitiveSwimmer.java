@@ -4,6 +4,9 @@ import java.util.Scanner;
 public class CompetitiveSwimmer extends Member{
 
     private int time;
+    private boolean isSwimmingCrawl = false;
+    private boolean isSwimmingBreast = false;
+    private boolean isSwimmingButterfly = false;
 
     //constructor
     public CompetitiveSwimmer (String name,int yearOfBirth, int time){
@@ -20,26 +23,71 @@ public class CompetitiveSwimmer extends Member{
     }
 
 
+//Getters and setters:
+public boolean isSwimmingCrawl() {
+    return isSwimmingCrawl;
+}
 
+    public void setSwimmingCrawl(boolean swimmingCrawl) {
+        isSwimmingCrawl = swimmingCrawl;
+    }
 
+    public boolean isSwimmingBreast() {
+        return isSwimmingBreast;
+    }
 
+    public void setSwimmingBreast(boolean swimmingBreast) {
+        isSwimmingBreast = swimmingBreast;
+    }
 
+    public boolean isSwimmingButterfly() {
+        return isSwimmingButterfly;
+    }
 
+    public void setSwimmingButterfly(boolean swimmingButterfly) {
+        isSwimmingButterfly = swimmingButterfly;
+    }
 
-
-public void chooseDiscipline(){
-    System.out.println("1. Crawl\n2. Backcrawl\n3. Breaststroke");
+public boolean keepGoingMenu(){
+        boolean keepGoing = true;
+    System.out.println("Do you want to add another discipline?");
+    System.out.println("1. Yes\n2. No");
     switch (readInt()){
         case 1:
-
+            keepGoing = true;
             break;
         case 2:
-
-            break;
-        case 3:
-
+            keepGoing = false;
             break;
     }
+    return keepGoing;
+}
+
+
+
+
+public void chooseDiscipline() {
+    do {
+        System.out.println("Please select the swimming styles you wish to practice: ");
+        System.out.println("1. Breast\n2. Crawl\n3. Butterfly");
+        switch (readInt()) {
+            case 1:
+                CrawlDisciplin crawl = new CrawlDisciplin();
+                crawl.registerCrawlTime();
+                isSwimmingCrawl = true;
+                break;
+            case 2:
+                BreastDiscipline breast = new BreastDiscipline();
+                breast.registerBreastTime();
+                isSwimmingBreast = true;
+                break;
+            case 3:
+                ButterflyDisciplin butterfly = new ButterflyDisciplin();
+                butterfly.registerButterflyTime();
+                isSwimmingButterfly = true;
+                break;
+        }
+    }while(keepGoingMenu());
 }
 
 public int readInt() {

@@ -1,18 +1,18 @@
 import java.util.Scanner;
 
-public class ButterflyDisciplin {
-    double butterflyTime;
-    public double getButterflyTime() {
-        return butterflyTime;
+public class BreastDiscipline {
+    double breastTime;
+    public double getBreastTime() {
+        return breastTime;
     }
 
-    public void setButterflyTime(double butterflyTime) {
-        this.butterflyTime = butterflyTime;
+    public void setBreastTime(double breastTime) {
+        this.breastTime = breastTime;
     }
 
-    public void registerButterflyTime(){
+    public void registerBreastTime(){
         System.out.println("What is your fastest time at breast swimming?");
-        setButterflyTime(readDouble());
+        setBreastTime(readDouble());
     }
 
 
@@ -83,4 +83,5 @@ public class ButterflyDisciplin {
         }
         return choice;
     }
+
 }
