@@ -122,7 +122,7 @@ public abstract class Member {
         while (!validChoice) {
             System.out.print(" ");
             if (scanner.hasNextLine()) {
-                choice2 = scanner.next().charAt(0);
+                choice2 = scanner.next().toUpperCase().charAt(0);
                 validChoice = true;
             } else {
                 System.err.println("Please input a character");
