@@ -16,9 +16,10 @@ public class CompetitiveSwimmer extends Member{
 
     public static ArrayList<Member> butterfly(){
         ArrayList<CompetitiveSwimmer> CompSwim1 = new ArrayList<>();
-        CompSwim1.add("")
+      //CompSwim1.add("jejej","ejje","w");
 
 
+        return null;
     }
 
 
