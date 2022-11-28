@@ -5,6 +5,8 @@ public class AccountantController {
     private int priceJunior = 1000;
     private int priceSenior = 1600;
 
+    //Hejsa!
+
   
 
  
