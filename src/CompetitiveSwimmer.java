@@ -17,7 +17,7 @@ public class CompetitiveSwimmer extends Member{
 
     public static ArrayList<Member> createSwimmers(){
         ArrayList<CompetitiveSwimmer> CompSwim = new ArrayList<>();
-        CompSwim.add("s")
+       // CompSwim.add("s")
 
 
     }
