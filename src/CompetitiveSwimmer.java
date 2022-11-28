@@ -6,7 +6,6 @@ public class CompetitiveSwimmer extends Member{
     private int time;
 
     //constructor
-
     public CompetitiveSwimmer (String diciplin, int time, String name, int yearOfBirth){
         this.diciplin = diciplin;
         this.time = time;
