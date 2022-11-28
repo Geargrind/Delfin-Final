@@ -1,4 +1,4 @@
-public class accountantController {
+public class AccountantController {
     private boolean hasPaid = false;
     private double expenses;
 
