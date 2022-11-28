@@ -3,14 +3,12 @@ import java.util.Scanner;
 
 public class CompetitiveSwimmer extends Member{
 
-    private String diciplin;
     private int time;
 
     //constructor
-    public CompetitiveSwimmer (String name,int yearOfBirth,String diciplin, int time){
+    public CompetitiveSwimmer (String name,int yearOfBirth, int time){
         this.setName(name);
         this.setYearOfBirth(yearOfBirth);
-        this.diciplin = diciplin;
         this.time = time;
 
     }
