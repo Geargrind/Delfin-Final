@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public abstract class Member {
     private String name;
-    private int yeaOfBirth;
+    private int yearOfBirth;
     private boolean active;
     private double debt;
 
@@ -13,7 +13,7 @@ public abstract class Member {
 
     public void Member(String name, int yeaOfBirth){
         setName("");
-        setYeaOfBirth(0);
+        setYearOfBirth(0);
     }
 
     public String getName() {
@@ -24,12 +24,12 @@ public abstract class Member {
         this.name = name;
     }
 
-    public int getYeaOfBirth() {
-        return yeaOfBirth;
+    public int getYearOfBirth() {
+        return yearOfBirth;
     }
 
-    public void setYeaOfBirth(int yeaOfBirth) {
-        this.yeaOfBirth = yeaOfBirth;
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
     }
 
     public boolean isActive() {
@@ -57,13 +57,13 @@ public abstract class Member {
     }
 
     public void membership(){
-        if((year - yeaOfBirth) > 18 && year - yeaOfBirth < 60 &&  active){
+        if((year - yearOfBirth) > 18 && year - yearOfBirth < 60 &&  active){
             setBalance(1600);
-        }else if(year - yeaOfBirth < 18 && active) {
+        }else if(year - yearOfBirth < 18 && active) {
             setBalance(1000);
-        }else if(year - yeaOfBirth >= 60 && active) {
+        }else if(year - yearOfBirth >= 60 && active) {
             setBalance(1200);
-        }else if(year - yeaOfBirth >= 60 && !active){
+        }else if(year - yearOfBirth >= 60 && !active){
             setBalance(375);
         }else{
             setBalance(500);

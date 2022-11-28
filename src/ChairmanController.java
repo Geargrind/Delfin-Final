@@ -24,11 +24,11 @@ public class ChairmanController {
             System.out.println("Please enter name:");
             motionist.setName(readString());
             System.out.println("Please enter year of birth: ");
-            motionist.setYeaOfBirth(readInt());
+            motionist.setYearOfBirth(readInt());
             motionist.whichMembership();
             motionist.membership();
             System.out.printf("Does this look correct?\nName: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
-                    motionist.getName(), motionist.getYeaOfBirth(),motionist.membershipType(), motionist.getBalance());
+                    motionist.getName(), motionist.getYearOfBirth(),motionist.membershipType(), motionist.getBalance());
 
         }
 
