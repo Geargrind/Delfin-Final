@@ -11,6 +11,8 @@ public abstract class Member {
     private int balance;
     private int year = Calendar.getInstance().get(Calendar.YEAR);
 
+    ChairmanController chairman = new ChairmanController();
+
     public void Member(String name, int yeaOfBirth){
         setName("");
         setYearOfBirth(0);
@@ -113,11 +115,40 @@ public abstract class Member {
         return choice2;
     }
 
+    public char readChar() {
+        Scanner scanner = new Scanner(System.in);
+        boolean validChoice = false;
+        char choice2 = ' ';
+        while (!validChoice) {
+            System.out.print(" ");
+            if (scanner.hasNextLine()) {
+                choice2 = scanner.next().charAt(0);
+                validChoice = true;
+            } else {
+                System.err.println("Please input a character");
+                scanner.nextLine();
+            }
+        }
+        return choice2;
+    }
+
     public String membershipType(){
         if(isActive()){
             return "Active";
         }else{
             return "Passive";
+        }
+    }
+
+    public void yesOrNo(){
+        System.out.println("\nPress yes (Y) or no (N)");
+        switch (readChar()){
+            case 'Y':
+
+                break;
+            case 'N':
+                chairman.createMotionist();
+                break;
         }
     }
 }

@@ -29,7 +29,7 @@ public class ChairmanController {
             motionist.membership();
             System.out.printf("Does this look correct?\nName: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
                     motionist.getName(), motionist.getYearOfBirth(),motionist.membershipType(), motionist.getBalance());
-
+            motionist.yesOrNo();
         }
 
 
