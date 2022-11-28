@@ -20,6 +20,7 @@ public class CompetitiveSwimmer extends Member{
        // CompSwim.add("s")
 
 
+        return null;
     }
 
 
