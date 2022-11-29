@@ -2,62 +2,58 @@ import java.util.Calendar;
 import java.util.Scanner;
 
 public abstract class Member {
+    //Attributes-------------------------------------------------------------------------
     private String name;
     private int yearOfBirth;
     private boolean active;
     private double debt;
-
-
     private int balance;
     private int year = Calendar.getInstance().get(Calendar.YEAR);
 
+    //New instance of Chairman class------------------------------------------------------
     ChairmanController chairman = new ChairmanController();
 
+    //Constructor which receives name and yearOfBirth-------------------------------------
     public void Member(String name, int yeaOfBirth){
         setName("");
         setYearOfBirth(0);
     }
 
+    //Getters-----------------------------------------------------------------------------
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public int getYearOfBirth() {
         return yearOfBirth;
     }
-
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
-    }
-
     public boolean isActive() {
         return active;
     }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
     public double getDebt() {
         return debt;
     }
-
-    public void setDebt(double debt) {
-        this.debt = debt;
-    }
-
     public int getBalance() {
         return balance;
     }
 
+    //Setters-----------------------------------------------------------------------------
+    public void setName(String name) {
+        this.name = name;
+    }
+    public void setDebt(double debt) {
+        this.debt = debt;
+    }
+    public void setYearOfBirth(int yearOfBirth) {
+        this.yearOfBirth = yearOfBirth;
+    }
+    public void setActive(boolean active) {
+        this.active = active;
+    }
     public void setBalance(int balance) {
         this.balance = balance;
     }
 
+    //A method which checks which price the member has to pay for their membership---------
     public void membership(){
         if((year - yearOfBirth) > 18 && year - yearOfBirth < 60 &&  active){
             setBalance(1600);
@@ -72,7 +68,8 @@ public abstract class Member {
         }
     }
 
-   public void whichMembership(){
+    //Method which sets a member to active or passive membership--------------------------
+    public void whichMembership(){
         System.out.println("1. Active\n2. Passive");
         if(readInt() == 1){
             setActive(true);
@@ -81,6 +78,28 @@ public abstract class Member {
         }
     }
 
+    //Method which return the statement active or passive depending on their active or not
+    public String membershipType(){
+        if(isActive()){
+            return "Active";
+        }else{
+            return "Passive";
+        }
+    }
+
+    //Method which asks the user if the receipt looks correct------------------------------
+    public void yesOrNo(){
+        System.out.println("\nPress yes (Y) or no (N)");
+        switch (readChar()){
+            case 'Y':
+                break;
+            case 'N':
+                chairman.createMotionist();
+                break;
+        }
+    }
+
+    //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
         boolean validChoice = false;
@@ -98,6 +117,7 @@ public abstract class Member {
         return choice;
     }
 
+    //A method which read the intput and only accepts a String otherwise et keeps running
     public String readString() {
         Scanner scanner = new Scanner(System.in);
         boolean validChoice = false;
@@ -115,6 +135,7 @@ public abstract class Member {
         return choice2;
     }
 
+    //A method which read the intput and only accepts a char otherwise et keeps running
     public char readChar() {
         Scanner scanner = new Scanner(System.in);
         boolean validChoice = false;
@@ -132,23 +153,5 @@ public abstract class Member {
         return choice2;
     }
 
-    public String membershipType(){
-        if(isActive()){
-            return "Active";
-        }else{
-            return "Passive";
-        }
-    }
 
-    public void yesOrNo(){
-        System.out.println("\nPress yes (Y) or no (N)");
-        switch (readChar()){
-            case 'Y':
-
-                break;
-            case 'N':
-                chairman.createMotionist();
-                break;
-        }
-    }
 }

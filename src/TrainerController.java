@@ -29,6 +29,7 @@ public class TrainerController {
                                 TrainerController trainer1 = new TrainerController("Niels Jørgensen");
                                 competitiveSwimmer.setAffiliatedTrainer(trainer1);
                                 chooseTrainer1 = true;
+                                System.out.println(chooseTrainer1);
                                 break;
                         case 2:
                                 TrainerController trainer2= new TrainerController("Thomas Nielsen");

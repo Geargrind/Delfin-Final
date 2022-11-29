@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class ChairmanController {
 
-
+    //A method which print a submenu to register whoch type of member----------------------
     public void registerMember(){
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
         switch (readInt()){
@@ -14,46 +14,47 @@ public class ChairmanController {
                 break;
             }
         }
-        public void createCompetitiveSwimmer(){
-            TrainerController trainerController = new TrainerController(" ");
-            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999);
-            System.out.println("Please enter name:");
-            competitiveSwimmer.setName(readString());
-            System.out.println("Please enter year of birth: ");
-            competitiveSwimmer.setYearOfBirth(readInt());
-            competitiveSwimmer.whichMembership();
-            competitiveSwimmer.membership();
-            competitiveSwimmer.chooseDiscipline();
-            trainerController.chooseTrainer();
-            System.out.println("----------RECEIPT----------");
-            System.out.printf("Chosen disciplines:\nBreast swimming: " +
+
+    //Method which creates a competitive-swimmer member------------------------------------
+    public void createCompetitiveSwimmer(){
+        TrainerController trainerController = new TrainerController(" ");
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999);
+        System.out.println("Please enter name:");
+        competitiveSwimmer.setName(readString());
+        System.out.println("Please enter year of birth: ");
+        competitiveSwimmer.setYearOfBirth(readInt());
+        competitiveSwimmer.whichMembership();
+        competitiveSwimmer.membership();
+        competitiveSwimmer.chooseDiscipline();
+        trainerController.chooseTrainer();
+        System.out.println("----------RECEIPT----------");
+        System.out.printf("Chosen disciplines:\nBreast swimming: " +
                             "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s", competitiveSwimmer.returnBreast(),
                     competitiveSwimmer.returnCrawl()
             , competitiveSwimmer.returnButterfly(), trainerController.whichTrainerIsChosen(),
-            System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d\n\n" +
+                System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d\n\n" +
                             "----------------------------\n",
                     competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
                     competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance()));
-            System.out.println("\n\n---Does this look correct?---");
+        System.out.println("\n\n---Does this look correct?---");
             competitiveSwimmer.yesOrNo();
         }
 
-        public void createMotionist(){
+    //Method which creates a motionist member-------------------------------------------
+    public void createMotionist(){
         Motionist motionist = new Motionist();
-            System.out.println("Please enter name:");
-            motionist.setName(readString());
-            System.out.println("Please enter year of birth: ");
-            motionist.setYearOfBirth(readInt());
-            motionist.whichMembership();
-            motionist.membership();
-            System.out.printf("Does this look correct?\nName: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
+        System.out.println("Please enter name:");
+        motionist.setName(readString());
+        System.out.println("Please enter year of birth: ");
+        motionist.setYearOfBirth(readInt());
+        motionist.whichMembership();
+        motionist.membership();
+        System.out.printf("Does this look correct?\nName: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
                     motionist.getName(), motionist.getYearOfBirth(),motionist.membershipType(), motionist.getBalance());
             motionist.yesOrNo();
         }
 
-
-
-
+    //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
         boolean validChoice = false;
@@ -71,6 +72,7 @@ public class ChairmanController {
         return choice;
     }
 
+    //A method which read the intput and only accepts a String otherwise et keeps running
     public String readString() {
         Scanner scanner = new Scanner(System.in);
         boolean validChoice = false;
