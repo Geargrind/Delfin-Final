@@ -1,6 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CrawlDisciplin {
+
+    ArrayList<CompetitiveSwimmer> crawlList = new ArrayList<>();
     double crawlTime;
     public double getCrawlTime() {
         return crawlTime;
@@ -11,7 +14,7 @@ public class CrawlDisciplin {
     }
 
     public void registerCrawlTime(){
-        System.out.println("What is your fastest time at breast swimming?");
+        System.out.println("What is your fastest time at crawl swimming?");
         setCrawlTime(readDouble());
     }
 

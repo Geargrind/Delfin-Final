@@ -12,6 +12,7 @@ public class Main {
         Controller controller = new Controller("MENU", "" +
                 "Welcome to the dolphins swimclub!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
         do {
             controller.printMenu();
             switch (controller.readInt()) {

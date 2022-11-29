@@ -1,6 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class ButterflyDisciplin {
+
+    ArrayList<CompetitiveSwimmer> butterflyList = new ArrayList<>();
     double butterflyTime;
     public double getButterflyTime() {
         return butterflyTime;

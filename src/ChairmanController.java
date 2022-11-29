@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class ChairmanController {
 
+
     public void registerMember(){
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
         switch (readInt()){
@@ -14,7 +15,8 @@ public class ChairmanController {
             }
         }
         public void createCompetitiveSwimmer(){
-            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999,  12);
+            TrainerController trainerController = new TrainerController(" ");
+            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999);
             System.out.println("Please enter name:");
             competitiveSwimmer.setName(readString());
             System.out.println("Please enter year of birth: ");
@@ -22,15 +24,16 @@ public class ChairmanController {
             competitiveSwimmer.whichMembership();
             competitiveSwimmer.membership();
             competitiveSwimmer.chooseDiscipline();
+            trainerController.chooseTrainer();
             System.out.println("----RECEIPT----");
             System.out.printf("Chosen disciplines:\nBreast swimming: " +
-                            "%b\nCrawl: %b\nButterfly: %b\n\n\n", competitiveSwimmer.isSwimmingBreast(),
-                    competitiveSwimmer.isSwimmingCrawl()
-            , competitiveSwimmer.isSwimmingButterfly());
+                            "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s\n\n", competitiveSwimmer.returnBreast(),
+                    competitiveSwimmer.returnCrawl()
+            , competitiveSwimmer.returnButterfly(), competitiveSwimmer.printTrainerAsAString());
             System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
                     competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
                     competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance());
-            System.out.println("Does this look correct?");
+            System.out.println("\n\n---Does this look correct?---");
             competitiveSwimmer.yesOrNo();
         }
 

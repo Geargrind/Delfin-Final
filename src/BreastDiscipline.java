@@ -1,6 +1,9 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BreastDiscipline {
+
+    ArrayList<CompetitiveSwimmer> breastList = new ArrayList<>();
     double breastTime;
     public double getBreastTime() {
         return breastTime;
