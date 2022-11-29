@@ -48,6 +48,10 @@ public boolean isSwimmingCrawl() {
         isSwimmingButterfly = swimmingButterfly;
     }
 
+
+
+
+
 public boolean keepGoingMenu(){
         boolean keepGoing = true;
     System.out.println("Do you want to add another discipline?");
@@ -62,9 +66,6 @@ public boolean keepGoingMenu(){
     }
     return keepGoing;
 }
-
-
-
 
 public void chooseDiscipline() {
     do {

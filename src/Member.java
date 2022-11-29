@@ -73,7 +73,7 @@ public abstract class Member {
     }
 
    public void whichMembership(){
-        System.out.println("1. Active\n 2. Passive");
+        System.out.println("1. Active\n2. Passive");
         if(readInt() == 1){
             setActive(true);
         }else{

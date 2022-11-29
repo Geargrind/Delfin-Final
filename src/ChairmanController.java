@@ -13,9 +13,6 @@ public class ChairmanController {
                 break;
             }
         }
-
-
-
         public void createCompetitiveSwimmer(){
             CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999,  12);
             System.out.println("Please enter name:");
@@ -30,10 +27,10 @@ public class ChairmanController {
                             "%b\nCrawl: %b\nButterfly: %b\n\n\n", competitiveSwimmer.isSwimmingBreast(),
                     competitiveSwimmer.isSwimmingCrawl()
             , competitiveSwimmer.isSwimmingButterfly());
-
             System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
                     competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
                     competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance());
+            System.out.println("Does this look correct?");
             competitiveSwimmer.yesOrNo();
         }
 

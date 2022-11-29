@@ -24,7 +24,6 @@ public class Main {
                     break;
                 case 9:
                     System.out.println("Goodbye");
-
                     keepRunning = false;
                     break;
                 default:
