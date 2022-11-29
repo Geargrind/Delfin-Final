@@ -3,7 +3,11 @@ import java.util.Scanner;
 
 public class CompetitiveSwimmer extends Member {
 
-    private int time;
+    private double time;
+
+    private String location;
+
+    private String competition;
     private boolean isSwimmingCrawl = false;
     private boolean isSwimmingBreast = false;
     private boolean isSwimmingButterfly = false;
@@ -12,8 +16,7 @@ public class CompetitiveSwimmer extends Member {
 
     public String printTrainerAsAString(){
         TrainerController affiliatedTrainer = new TrainerController(" ");
-        String affiliatedTrainerForReal = affiliatedTrainer.whichTrainerIsChosen();
-        return affiliatedTrainerForReal;
+        return affiliatedTrainer.whichTrainerIsChosen();
     }
 
 
@@ -22,9 +25,13 @@ public class CompetitiveSwimmer extends Member {
         this.setName(name);
         this.setYearOfBirth(yearOfBirth);
         this.time = time;
-
     }
 
+    public CompetitiveSwimmer(String location, String competition, double time){
+        setCompetition(competition);
+        setLocation(location);
+        setTime(time);
+    }
     public static ArrayList<Member> butterfly() {
         ArrayList<CompetitiveSwimmer> CompSwim1 = new ArrayList<>();
         //CompSwim1.add("jejej","ejje","w");
@@ -37,6 +44,29 @@ public class CompetitiveSwimmer extends Member {
         return isSwimmingCrawl;
     }
 
+    public double getTime() {
+        return time;
+    }
+
+    public void setTime(double time) {
+        this.time = time;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getCompetition() {
+        return competition;
+    }
+
+    public void setCompetition(String competition) {
+        this.competition = competition;
+    }
 
     public void setSwimmingCrawl(boolean swimmingCrawl) {
         isSwimmingCrawl = swimmingCrawl;

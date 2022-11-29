@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class BreastDiscipline {
 
     ArrayList<CompetitiveSwimmer> breastList = new ArrayList<>();
+    
+
     double breastTime;
     public double getBreastTime() {
         return breastTime;
@@ -15,6 +17,7 @@ public class BreastDiscipline {
 
     public void registerBreastTime(){
         System.out.println("What is your fastest time at breast swimming?");
+        breastList.add();
         setBreastTime(readDouble());
     }
 

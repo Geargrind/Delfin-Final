@@ -25,14 +25,15 @@ public class ChairmanController {
             competitiveSwimmer.membership();
             competitiveSwimmer.chooseDiscipline();
             trainerController.chooseTrainer();
-            System.out.println("----RECEIPT----");
+            System.out.println("----------RECEIPT----------");
             System.out.printf("Chosen disciplines:\nBreast swimming: " +
-                            "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s\n\n", competitiveSwimmer.returnBreast(),
+                            "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s", competitiveSwimmer.returnBreast(),
                     competitiveSwimmer.returnCrawl()
-            , competitiveSwimmer.returnButterfly(), competitiveSwimmer.printTrainerAsAString());
-            System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
+            , competitiveSwimmer.returnButterfly(), trainerController.whichTrainerIsChosen(),
+            System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d\n\n" +
+                            "----------------------------\n",
                     competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
-                    competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance());
+                    competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance()));
             System.out.println("\n\n---Does this look correct?---");
             competitiveSwimmer.yesOrNo();
         }

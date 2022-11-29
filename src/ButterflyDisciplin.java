@@ -14,8 +14,10 @@ public class ButterflyDisciplin {
     }
 
     public void registerButterflyTime(){
-        System.out.println("What is your fastest time at breast swimming?");
+        System.out.println("What is your fastest time at butterfly swimming?");
+
         setButterflyTime(readDouble());
+
     }
 
 
