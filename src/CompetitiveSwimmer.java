@@ -211,7 +211,7 @@ public class CompetitiveSwimmer extends Member {
                 break;
         }
     }
-    //Method which prints w
+    //Method which prints w..
     public void swimmingsDisciplin(){
         chooseADisciplin();
     }
@@ -234,14 +234,22 @@ public class CompetitiveSwimmer extends Member {
                 break;
             case 3:
                //printButterflySvimmers();
-                ButterflyDisciplin b = new ButterflyDisciplin();
-                printe();
+               // butterflysum();
+
+               ButterflyDisciplin b = new ButterflyDisciplin();
+                b.createButterflySvimmer();
+               // printe();
                 break;
             default:
         }
     }
 
     //Method that should print the elements i the butterfly - arraylist
+    public void butterflysum(){
+
+
+    }
+
     public void printButterflySvimmers(){
             //Denne del printer arralisten elementer ud
             butterflySvimmers = ButterflyDisciplin.createButterflySvimmer();

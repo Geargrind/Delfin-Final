@@ -31,6 +31,12 @@ public class ButterflyDisciplin {
         CompetitiveSwimmer butterflySwimmer4 = new CompetitiveSwimmer("Holbæk","sjællands bedst", 20.29 );
         CompetitiveSwimmer butterflySwimmer5 = new CompetitiveSwimmer("Birkerød","bedste ever", 21.29 );
 
+        butterflySwimmers.add(butterflySwimmer1);
+        butterflySwimmers.add(butterflySwimmer2);
+        butterflySwimmers.add(butterflySwimmer3);
+        butterflySwimmers.add(butterflySwimmer4);
+        butterflySwimmers.add(butterflySwimmer5);
+
         return butterflySwimmers;
     }
 
