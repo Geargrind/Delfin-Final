@@ -54,6 +54,40 @@ public class ChairmanController {
             motionist.yesOrNo();
         }
 
+    //Method with a login system for Chairman only----------------------------------------------
+    public void loginChairman() { //Ejerskab: Ikhra & Hannan
+
+        String s = "";
+        String p = "";
+        Scanner in = new Scanner(System.in);
+        int counter = 0;
+
+        while (true) {
+
+            System.out.println("Please enter your username:");
+            s = in.nextLine();
+
+            System.out.println("Please enter your password: ");
+            p = in.nextLine();
+
+
+            if (s.equalsIgnoreCase("Chairman") && p.equalsIgnoreCase("Chairman")) {
+                System.out.println("Succeed");
+                System.out.println("You are logged in as Chairman");
+                break;
+            } else {
+                System.out.println("Try again");
+                counter++;
+                if (counter == 3) {
+                    System.out.println("You have reached limited amount of tries");
+                    break;
+                }
+            }
+
+        }
+
+    }
+
     //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
