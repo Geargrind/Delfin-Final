@@ -1,5 +1,3 @@
-import java.util.Random;
-
 public class AccountantController {
     private boolean hasPaid = false;
     private double expenses;
@@ -8,7 +6,7 @@ public class AccountantController {
     private int priceSenior = 1600;
 
     private int pensionAge = 60;
-
+/*
     public void accountantMenu{
         boolean keepRunning = true;
 
@@ -45,6 +43,8 @@ public class AccountantController {
 
                         //todo metode accountantMenu.getAllMembers().get(i).setHasPaid(hasPaid);
 
+
+ */
                     }
 
 
