@@ -22,6 +22,8 @@ public class ButterflyDisciplin {
         setButterflyTime(readDouble());
     }
 
+
+
     //A method which saves the element of swimmer in an arraylist called "butterflySvimmers"
     public static ArrayList<CompetitiveSwimmer> createButterflySvimmer() {
         ArrayList<CompetitiveSwimmer> butterflySwimmers = new ArrayList<>();
@@ -37,8 +39,12 @@ public class ButterflyDisciplin {
         butterflySwimmers.add(butterflySwimmer4);
         butterflySwimmers.add(butterflySwimmer5);
 
+
+
         return butterflySwimmers;
     }
+
+
 
     //Noget code jeg ikke ved om jeg får brug for senere....
     /*

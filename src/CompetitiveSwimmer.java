@@ -2,12 +2,12 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompetitiveSwimmer extends Member {
-
+    //Attributs------------------------------------------------------------------------------------
     private double time;
     private String name;
     private String location;
-
     private String competition;
+
     private boolean isSwimmingCrawl = false;
     private boolean isSwimmingBreast = false;
     private boolean isSwimmingButterfly = false;
@@ -16,30 +16,24 @@ public class CompetitiveSwimmer extends Member {
     private ArrayList<CompetitiveSwimmer> butterflySvimmers;
 
 
-    public String printTrainerAsAString(){
-        TrainerController affiliatedTrainer = new TrainerController(" ");
-        return affiliatedTrainer.whichTrainerIsChosen();
-    }
-
-
-    //Constructor
+    //Constructor overloading
     public CompetitiveSwimmer(String name, int yearOfBirth) {
         setName(name);
         setYearOfBirth(yearOfBirth);
         setTime(time);
     }
-    /*
-     this.setName(name);
-        this.setYearOfBirth(yearOfBirth);
-        this.time = time;
-     */
 
     public CompetitiveSwimmer(String location, String competition, double time){
         setCompetition(competition);
         setLocation(location);
         setTime(time);
+
     }
 
+    public String printTrainerAsAString(){
+        TrainerController affiliatedTrainer = new TrainerController(" ");
+        return affiliatedTrainer.whichTrainerIsChosen();
+    }
 
 
     public static ArrayList<Member> butterfly() {
@@ -237,7 +231,7 @@ public class CompetitiveSwimmer extends Member {
                // butterflysum();
 
                ButterflyDisciplin b = new ButterflyDisciplin();
-                b.createButterflySvimmer();
+               // b.createButterflySvimmer();
                // printe();
                 break;
             default:
@@ -247,17 +241,8 @@ public class CompetitiveSwimmer extends Member {
     //Method that should print the elements i the butterfly - arraylist
     public void butterflysum(){
 
-
     }
 
-    public void printButterflySvimmers(){
-            //Denne del printer arralisten elementer ud
-            butterflySvimmers = ButterflyDisciplin.createButterflySvimmer();
-            for (CompetitiveSwimmer b : butterflySvimmers) {
-
-            }
-        System.out.println(butterflySvimmers);
-    }
 
     //Same method as the one above but here we use printf for a better format
     public void printe(){
