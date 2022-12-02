@@ -3,15 +3,6 @@ import java.util.Scanner;
 
 public class BreastDiscipline {
 
-    ArrayList<CompetitiveSwimmer> breastSwimmers = new ArrayList<>();
-
-    public ArrayList<CompetitiveSwimmer> getBreastswimmers() {
-        return breastSwimmers;
-    }
-
-    public void setBreastswimmers(ArrayList<CompetitiveSwimmer> breastswimmers) {
-        this.breastSwimmers = breastswimmers;
-    }
 
     public ArrayList<CompetitiveSwimmer> createBreastSvimmer() {
         ArrayList<CompetitiveSwimmer> breastSwimmers = new ArrayList<>();
@@ -38,9 +29,7 @@ public class BreastDiscipline {
 
     public void print(){
         System.out.println("Name        Location                           Competition                        Time                       \n ");
-
-        for (CompetitiveSwimmer breast : createBreastSvimmer()) {
-
+        for (CompetitiveSwimmer breast: createBreastSvimmer()) {
             System.out.printf("%-12s%-10s%-10s%-10s%n", breast.getName(), breast.getLocation(),
                     breast.getCompetition(),breast.getTime()
             );
@@ -48,10 +37,9 @@ public class BreastDiscipline {
     }
 
     public void printBreastSwimmers() {
-        System.out.println("-----------------------------------------------BUTTERFLY SWIMMERS-----------------------------------------------");
-
+        System.out.println("-----------------------------------------------BREAST SWIMMERS-----------------------------------------------");
+        createBreastSvimmer();
         print();
-
     }
 
 
