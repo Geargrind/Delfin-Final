@@ -139,7 +139,7 @@ public class CompetitiveSwimmer extends Member {
         BreastDiscipline breast = new BreastDiscipline();
         breast.registerBreastTime();
         isSwimmingBreast = true;
-        breast.breastswimmers.add(competitiveSwimmer);
+        breast.breastSwimmers.add(competitiveSwimmer);
         returnBreast();
     }
 
