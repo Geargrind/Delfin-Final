@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public abstract class Member {
+public class Member {
     //Attributes-------------------------------------------------------------------------
     private String name;
     private int yearOfBirth;
