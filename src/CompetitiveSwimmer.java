@@ -23,7 +23,8 @@ public class CompetitiveSwimmer extends Member {
         setTime(time);
     }
 
-    public CompetitiveSwimmer(String location, String competition, double time){
+    public CompetitiveSwimmer(String name, String location, String competition, double time){
+        setName(name);
         setCompetition(competition);
         setLocation(location);
         setTime(time);
@@ -218,7 +219,7 @@ public class CompetitiveSwimmer extends Member {
     //Method where the user can choose a swimming discipline----------------------------
     public void chooseADisciplin(){
         System.out.println("Please choose either:\n1. Breast\n2. Crawl\n3. Butterfly ");
-
+        ButterflyDisciplin b = new ButterflyDisciplin();
         switch (readInt()){
             case 1:
                 ;
@@ -227,12 +228,8 @@ public class CompetitiveSwimmer extends Member {
                 ;
                 break;
             case 3:
-               //printButterflySvimmers();
-               // butterflysum();
+                b.printButterflySwimmers();
 
-               ButterflyDisciplin b = new ButterflyDisciplin();
-               // b.createButterflySvimmer();
-               // printe();
                 break;
             default:
         }
