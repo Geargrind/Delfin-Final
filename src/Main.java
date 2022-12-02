@@ -4,7 +4,7 @@ public class Main {
     String[] menuItems = new String[]{
             "1. Register member",
             "2. Competitive swimmers",
-            "3. Member debt",
+            "3. Member debts",
             "9. Exit program"
     };
 
