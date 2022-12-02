@@ -22,6 +22,8 @@ public class BreastDiscipline {
         return breastSwimmers;
     }
 
+
+
     public void addBreastSwimmer(){
 
     }
@@ -38,7 +40,7 @@ public class BreastDiscipline {
 
     public void printBreastSwimmers() {
         System.out.println("-----------------------------------------------BUTTERFLY SWIMMERS-----------------------------------------------");
-        createBreastSvimmer();
+
         print();
 
     }

@@ -133,11 +133,11 @@ public class CompetitiveSwimmer extends Member {
 
     //Method which sets breast discipline to true ond saves it to the list---------------
     public void chooseBreast() {
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getYearOfBirth());
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getLocation(), getCompetition(), getTime());
         BreastDiscipline breast = new BreastDiscipline();
         breast.registerBreastTime();
         isSwimmingBreast = true;
-        breast.breastList.add(competitiveSwimmer);
+        breast.breastswimmers.add(competitiveSwimmer);
         returnBreast();
     }
 
@@ -220,9 +220,11 @@ public class CompetitiveSwimmer extends Member {
     public void chooseADisciplin(){
         System.out.println("Please choose either:\n1. Breast\n2. Crawl\n3. Butterfly ");
         ButterflyDisciplin b = new ButterflyDisciplin();
+        BreastDiscipline be = new BreastDiscipline();
         CrawlDisciplin c = new CrawlDisciplin();
         switch (readInt()){
             case 1:
+                be.printBreastSwimmers();
                 ;
                 break;
             case 2:
