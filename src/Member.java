@@ -2,7 +2,7 @@ import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Scanner;
 
-public class Member {
+public abstract class Member {
     //Attributes-------------------------------------------------------------------------
     private String name;
     private int yearOfBirth;
@@ -22,18 +22,21 @@ public class Member {
 
 
     // new contructor with calculates age method
-    public Member(String name, String dateOfBirth, boolean Active, boolean isCompetitiveSwimmer )
+    public Member()
     {
         this.name = name;
 
         this.dateOfBirth = dateOfBirth;
 
-        this.active = Active;
+        this.active = active;
 
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
 
 
-        calculateAge();
+
+    }
+
+    public Member(String name, int yearOfBirth) {
     }
 
     //Getters-----------------------------------------------------------------------------
