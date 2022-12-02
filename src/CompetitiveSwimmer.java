@@ -226,7 +226,8 @@ public class CompetitiveSwimmer extends Member {
                 ;
                 break;
             case 2:
-                c.printButterflySwimmers();
+                c.printCrawlSwimmers();
+
                 break;
             case 3:
                 b.printButterflySwimmers();
