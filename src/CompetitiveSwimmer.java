@@ -220,12 +220,13 @@ public class CompetitiveSwimmer extends Member {
     public void chooseADisciplin(){
         System.out.println("Please choose either:\n1. Breast\n2. Crawl\n3. Butterfly ");
         ButterflyDisciplin b = new ButterflyDisciplin();
+        CrawlDisciplin c = new CrawlDisciplin();
         switch (readInt()){
             case 1:
                 ;
                 break;
             case 2:
-                ;
+                c.printButterflySwimmers();
                 break;
             case 3:
                 b.printButterflySwimmers();
