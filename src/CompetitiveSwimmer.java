@@ -18,12 +18,14 @@ public class CompetitiveSwimmer extends Member {
 
     //Constructor overloading
     public CompetitiveSwimmer(String name, int yearOfBirth) {
+        super(name, yearOfBirth);
         setName(name);
         setYearOfBirth(yearOfBirth);
         setTime(time);
     }
 
     public CompetitiveSwimmer(String name, String location, String competition, double time){
+        super();
         setName(name);
         setCompetition(competition);
         setLocation(location);
@@ -133,11 +135,11 @@ public class CompetitiveSwimmer extends Member {
 
     //Method which sets breast discipline to true ond saves it to the list---------------
     public void chooseBreast() {
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getLocation(), getCompetition(), getTime());
+        CompetitiveSwimmer breastSwimmer = new CompetitiveSwimmer(getName(), getLocation(), getCompetition(), getTime());
         BreastDiscipline breast = new BreastDiscipline();
         breast.registerBreastTime();
         isSwimmingBreast = true;
-        breast.breastswimmers.add(competitiveSwimmer);
+        breast.createBreastSvimmer().add(breastSwimmer);
         returnBreast();
     }
 

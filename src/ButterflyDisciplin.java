@@ -39,8 +39,6 @@ public class ButterflyDisciplin {
         butterflySwimmers.add(butterflySwimmer4);
         butterflySwimmers.add(butterflySwimmer5);
 
-
-
         return butterflySwimmers;
     }
 

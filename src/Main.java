@@ -14,11 +14,13 @@ public class Main {
                 "Welcome to the dolphins swimclub!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
+        BreastDiscipline breast = new BreastDiscipline();
+        ButterflyDisciplin bu = new ButterflyDisciplin();
         do {
             controller.printMenu();
             switch (controller.readInt()) {
                 case 1:
-                    chairman.registerMember();
+                   chairman.registerMember();
                     break;
                 case 2:
                     competitiveSwimmer.competitiveSvimmer();
