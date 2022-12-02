@@ -23,7 +23,8 @@ public class CompetitiveSwimmer extends Member {
         setTime(time);
     }
 
-    public CompetitiveSwimmer(String location, String competition, double time){
+    public CompetitiveSwimmer(String name, String location, String competition, double time){
+        setName(name);
         setCompetition(competition);
         setLocation(location);
         setTime(time);
@@ -132,11 +133,11 @@ public class CompetitiveSwimmer extends Member {
 
     //Method which sets breast discipline to true ond saves it to the list---------------
     public void chooseBreast() {
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getYearOfBirth());
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getLocation(), getCompetition(), getTime());
         BreastDiscipline breast = new BreastDiscipline();
         breast.registerBreastTime();
         isSwimmingBreast = true;
-        breast.breastList.add(competitiveSwimmer);
+        breast.breastswimmers.add(competitiveSwimmer);
         returnBreast();
     }
 
@@ -218,21 +219,21 @@ public class CompetitiveSwimmer extends Member {
     //Method where the user can choose a swimming discipline----------------------------
     public void chooseADisciplin(){
         System.out.println("Please choose either:\n1. Breast\n2. Crawl\n3. Butterfly ");
-
+        ButterflyDisciplin b = new ButterflyDisciplin();
+        BreastDiscipline be = new BreastDiscipline();
+        CrawlDisciplin c = new CrawlDisciplin();
         switch (readInt()){
             case 1:
+                be.printBreastSwimmers();
                 ;
                 break;
             case 2:
-                ;
+                c.printCrawlSwimmers();
+
                 break;
             case 3:
-               //printButterflySvimmers();
-               // butterflysum();
+                b.printButterflySwimmers();
 
-               ButterflyDisciplin b = new ButterflyDisciplin();
-               // b.createButterflySvimmer();
-               // printe();
                 break;
             default:
         }

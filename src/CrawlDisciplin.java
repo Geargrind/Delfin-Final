@@ -18,6 +18,44 @@ public class CrawlDisciplin {
         setCrawlTime(readDouble());
     }
 
+    //A method which saves the element of swimmer in an arraylist called "crawlsvimmers"
+    public static ArrayList<CompetitiveSwimmer> createCrawlSvimmer() {
+        ArrayList<CompetitiveSwimmer> crawlSwimmers = new ArrayList<>();
+        CompetitiveSwimmer crawlSwimmer1 = new CompetitiveSwimmer("Sine","Allerød","bedste dk", 12.23 );
+        CompetitiveSwimmer crawlSwimmer2 = new CompetitiveSwimmer("Mads","Horens","bedst sk", 22.29 );
+        CompetitiveSwimmer crawlSwimmer3 = new CompetitiveSwimmer("Lucas","Holte","vm cup", 11.29 );
+        CompetitiveSwimmer crawlSwimmer4 = new CompetitiveSwimmer("Hansen","Østerbro","sjællands bedst", 20.29 );
+        CompetitiveSwimmer crawlSwimmer5 = new CompetitiveSwimmer("Ditte","Holte","bedste ever", 21.29 );
+
+        crawlSwimmers.add(crawlSwimmer1);
+        crawlSwimmers.add(crawlSwimmer2);
+        crawlSwimmers.add(crawlSwimmer3);
+        crawlSwimmers.add(crawlSwimmer4);
+        crawlSwimmers.add(crawlSwimmer5);
+
+
+
+        return crawlSwimmers;
+    }
+
+    public void print(){
+        System.out.println("Name        Location              Competition              Time                       \n ");
+        for (CompetitiveSwimmer crawl : createCrawlSvimmer()) {
+
+            System.out.printf("%-15s%-15s%-15s%-15s%n", crawl.getName(), crawl.getLocation(),
+                    crawl.getCompetition(),crawl.getTime()
+            );
+        }
+    }
+
+    public void printCrawlSwimmers() {
+        System.out.println("-----------------------------------------------CRAWL SWIMMERS-----------------------------------------------");
+        createCrawlSvimmer();
+        print();
+
+    }
+
+
 
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
