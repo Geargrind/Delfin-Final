@@ -18,12 +18,14 @@ public class CompetitiveSwimmer extends Member {
 
     //Constructor overloading
     public CompetitiveSwimmer(String name, int yearOfBirth) {
+        super(name, yearOfBirth);
         setName(name);
         setYearOfBirth(yearOfBirth);
         setTime(time);
     }
 
     public CompetitiveSwimmer(String name, String location, String competition, double time){
+        super();
         setName(name);
         setCompetition(competition);
         setLocation(location);
