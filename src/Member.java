@@ -1,3 +1,4 @@
+import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Scanner;
 
@@ -5,18 +6,34 @@ public abstract class Member {
     //Attributes-------------------------------------------------------------------------
     private String name;
     private int yearOfBirth;
+
+    private String dateOfBirth;
+    private int age;
     private boolean active;
     private double debt;
     private int balance;
+
+    private boolean isCompetitiveSwimmer;
+
     private int year = Calendar.getInstance().get(Calendar.YEAR);
 
     //New instance of Chairman class------------------------------------------------------
     ChairmanController chairman = new ChairmanController();
 
-    //Constructor which receives name and yearOfBirth-------------------------------------
-    public void Member(String name, int yeaOfBirth){
-        setName("");
-        setYearOfBirth(0);
+
+    // new contructor with calculates age method
+    public Member(String name, String dateOfBirth, boolean Active, boolean isCompetitiveSwimmer )
+    {
+        this.name = name;
+
+        this.dateOfBirth = dateOfBirth;
+
+        this.active = Active;
+
+        this.isCompetitiveSwimmer = isCompetitiveSwimmer;
+
+
+        calculateAge();
     }
 
     //Getters-----------------------------------------------------------------------------
@@ -29,11 +46,24 @@ public abstract class Member {
     public boolean isActive() {
         return active;
     }
+
+    public int getAge(){
+        return age;
+    }
+
     public double getDebt() {
         return debt;
     }
     public int getBalance() {
         return balance;
+    }
+
+    public String getDateOfBirth(){
+        return dateOfBirth;
+    }
+
+    public boolean isCompetitiveSwimmer() {
+        return isCompetitiveSwimmer;
     }
 
     //Setters-----------------------------------------------------------------------------
@@ -53,6 +83,14 @@ public abstract class Member {
         this.balance = balance;
     }
 
+    public void setDateOfBirth(String dateOfBirth){
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public void setCompetitiveSwimmer(boolean competitiveSwimmer) {
+        this.isCompetitiveSwimmer = competitiveSwimmer;
+    }
+
     //A method which checks which price the member has to pay for their membership---------
     public void membership(){
         if((year - yearOfBirth) > 18 && year - yearOfBirth < 60 &&  active){
@@ -66,6 +104,23 @@ public abstract class Member {
         }else{
             setBalance(500);
         }
+    }
+
+    // Method that calculates age
+    public void calculateAge() {
+
+        int currentYear = LocalDateTime.now().getYear();
+        int currentMonth = LocalDateTime.now().getMonthValue();
+        int currentDay = LocalDateTime.now().getDayOfMonth();
+
+        int year = Integer.parseInt(dateOfBirth.substring(6, 10));
+        int month = Integer.parseInt(dateOfBirth.substring(3, 5));
+        int day = Integer.parseInt(dateOfBirth.substring(0, 2));
+
+        if (currentMonth >= month && currentDay >= day)
+            age = currentYear - year;
+        else
+            age = currentYear - year - 1;
     }
 
     //Method which sets a member to active or passive membership--------------------------
@@ -152,6 +207,8 @@ public abstract class Member {
         }
         return choice2;
     }
+
+
 
 
 }
