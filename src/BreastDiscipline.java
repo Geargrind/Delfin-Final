@@ -3,7 +3,9 @@ import java.util.Scanner;
 
 public class BreastDiscipline {
 
-    public static ArrayList<CompetitiveSwimmer> createBreastSvimmer() {
+    ArrayList<CompetitiveSwimmer> breastswimmers = new ArrayList<>();
+
+    public ArrayList<CompetitiveSwimmer> createBreastSvimmer() {
         ArrayList<CompetitiveSwimmer> breastSwimmers = new ArrayList<>();
         CompetitiveSwimmer breastSwimmer1 = new CompetitiveSwimmer("Ikhra","Hillerød","bedste dk", 12.23 );
         CompetitiveSwimmer breastSwimmer2 = new CompetitiveSwimmer("Hannan","Horens","bedst sk", 22.29 );
@@ -18,6 +20,10 @@ public class BreastDiscipline {
         breastSwimmers.add(breastSwimmer5);
 
         return breastSwimmers;
+    }
+
+    public void addBreastSwimmer(){
+
     }
 
     public void print(){

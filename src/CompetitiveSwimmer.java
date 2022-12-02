@@ -133,11 +133,11 @@ public class CompetitiveSwimmer extends Member {
 
     //Method which sets breast discipline to true ond saves it to the list---------------
     public void chooseBreast() {
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getYearOfBirth());
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(getName(), getCompetition(), getLocation(), getTime());
         BreastDiscipline breast = new BreastDiscipline();
         breast.registerBreastTime();
         isSwimmingBreast = true;
-        breast.
+        breast.breastswimmers.add(competitiveSwimmer);
         returnBreast();
     }
 
