@@ -1,4 +1,4 @@
-public class Motionist extends Member{
+public class Motionist {
 
 
 
