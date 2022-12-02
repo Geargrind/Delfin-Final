@@ -20,10 +20,7 @@ public class Main {
             controller.printMenu();
             switch (controller.readInt()) {
                 case 1:
-                   // chairman.registerMember();
-                    //breast.createBreastSvimmer();
-                    bu.printButterflySwimmers();
-
+                   chairman.registerMember();
                     break;
                 case 2:
                     competitiveSwimmer.competitiveSvimmer();
