@@ -137,7 +137,7 @@ public class CompetitiveSwimmer extends Member {
         BreastDiscipline breast = new BreastDiscipline();
         breast.registerBreastTime();
         isSwimmingBreast = true;
-        breast.breastList.add(competitiveSwimmer);
+        breast.
         returnBreast();
     }
 
@@ -220,8 +220,10 @@ public class CompetitiveSwimmer extends Member {
     public void chooseADisciplin(){
         System.out.println("Please choose either:\n1. Breast\n2. Crawl\n3. Butterfly ");
         ButterflyDisciplin b = new ButterflyDisciplin();
+        BreastDiscipline be = new BreastDiscipline();
         switch (readInt()){
             case 1:
+                be.printBreastSwimmers();
                 ;
                 break;
             case 2:
