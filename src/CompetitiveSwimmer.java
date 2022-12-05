@@ -12,7 +12,7 @@ public class CompetitiveSwimmer extends Member {
 
 
     //Constructor overloading
-    public CompetitiveSwimmer(String name, int memberID) {
+    public CompetitiveSwimmer(String name, int memberID, String dateOfBirth, boolean hasDebt) {
         setName(name);
         setTime(time);
     }

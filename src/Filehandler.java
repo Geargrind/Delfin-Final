@@ -5,7 +5,6 @@ public class Filehandler {
 
 
     public void run() {
-
         /*Try catch metode som læser og samtidige opretter en fil. Man kan indsætte noget tekst i en fil
         og så vil dette program udskrive det en consolen. Smart I know ;)
          */
