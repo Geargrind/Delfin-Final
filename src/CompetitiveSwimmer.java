@@ -25,6 +25,9 @@ public class CompetitiveSwimmer extends Member {
         setTime(time);
     }
 
+    public CompetitiveSwimmer(String s, int i) {
+    }
+
     public String printTrainerAsAString(){
         TrainerController affiliatedTrainer = new TrainerController(" ");
         return affiliatedTrainer.whichTrainerIsChosen();
@@ -124,9 +127,8 @@ public class CompetitiveSwimmer extends Member {
     }
     public void topFiveSwimmer(){
         chooseADisciplin();
-
-
     }
+
 
     //Method where the user can choose a swimming discipline----------------------------
     public void chooseADisciplin(){

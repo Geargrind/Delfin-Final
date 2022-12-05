@@ -16,6 +16,7 @@ public class Main {
         Controller controller = new Controller("MENU", "" +
                 "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "",);
         do {
             controller.printMenu();
             switch (controller.readInt()) {
