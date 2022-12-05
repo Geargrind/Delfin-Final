@@ -1,6 +1,5 @@
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -17,17 +16,15 @@ public class Main {
         Controller controller = new Controller("MENU", "" +
                 "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
+
         do {
             controller.printMenu();
             switch (controller.readInt()) {
                 case 1:
                    chairman.registerMember();
                     break;
+
                 case 2:
-                    competitiveSwimmer.competitiveSvimmer();
-                    break;
-                case 3:
 
                     break;
                 case 9:
@@ -44,11 +41,7 @@ public class Main {
 
         new Main().run(); //This makes the code in the run method run and makes sure or main method dont crash
             Scanner sc = new Scanner(new File("motionistList.csv"));
-            ArrayList<CompetitiveSwimmer> list = new ArrayList<>();
-            sc.useDelimiter(";");
-            while(sc.hasNext()){
-            }
-            sc.close();
+
         }
     }
 
