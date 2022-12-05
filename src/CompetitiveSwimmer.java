@@ -121,82 +121,24 @@ public class CompetitiveSwimmer extends Member {
             System.out.println("1. Breast\n2. Crawl\n3. Butterfly");
             switch (readInt()) {
                 case 1:
-                    chooseBreast();
+
                     break;
                 case 2:
-                    chooseCrawl();
+
                     break;
                 case 3:
-                    chooseButterfly();
+
                     break;
             }
         } while (keepGoingMenu());
     }
 
-    //Method which sets breast discipline to true ond saves it to the list---------------
-    public void chooseBreast() {
-        CompetitiveSwimmer breastSwimmer = new CompetitiveSwimmer(getName(), getLocation(), getCompetition(), getTime());
-        BreastDiscipline breast = new BreastDiscipline();
-        breast.registerBreastTime();
-        isSwimmingBreast = true;
-        //breast.breastSwimmers.add(breastSwimmer);
 
-        breast.addBreastSwimmer(breastSwimmer);
-        returnBreast();
-    }
 
-    //Method which return breast discipline with a statement "choose" if its gets choosen
-    public String returnBreast(){
-        if(isSwimmingBreast){
-            return "Chosen";
-        }else{
-            return "Not chosen";
-        }
-    }
 
-    //Method which sets crawl discipline to true ond saves it to the list---------------
-    public void chooseCrawl() {
-        CrawlDisciplin crawl = new CrawlDisciplin();
-        crawl.registerCrawlTime();
-        CompetitiveSwimmer competitiveSwimmer2 = new CompetitiveSwimmer(getName(), getYearOfBirth());
-        isSwimmingCrawl = true;
-        crawl.crawlList.add(competitiveSwimmer2);
-    }
 
-    //Method which return crawl discipline with a statement "choose" if its gets choosen
-    public String returnCrawl(){
-        if(isSwimmingCrawl){
-            return "Chosen";
-        }else{
-            return "Not chosen";
-        }
-    }
 
-    //Method which sets butterfly discipline to true ond saves it to the list---------------
-    public void chooseButterfly() {
-        ButterflyDisciplin butterfly = new ButterflyDisciplin();
-        CompetitiveSwimmer competitiveSwimmer3 = new CompetitiveSwimmer(getName(), getYearOfBirth());
-        butterfly.registerButterflyTime();
-        isSwimmingButterfly = true;
-        butterfly.butterflyList.add(competitiveSwimmer3);
-    }
 
-    //Method which return butterfly discipline with a statement "choose" if its gets choosen
-    public String returnButterfly(){
-        if(isSwimmingButterfly){
-            return "Chosen";
-        }else{
-            return "Not chosen";
-        }
-    }
-
-    public void showCrawlList() {
-        CrawlDisciplin crawl = new CrawlDisciplin();
-        for (int i = 0; i < crawl.crawlList.size(); i++) {
-            System.out.println(crawl.crawlList.get(i));
-        }
-
-    }
 
     //Method which print a submenu from '2. Competitive swimmers'-------------------------
     public void competitiveSvimmer(){
@@ -222,25 +164,6 @@ public class CompetitiveSwimmer extends Member {
 
     //Method where the user can choose a swimming discipline----------------------------
     public void chooseADisciplin(){
-        System.out.println("Please choose either:\n1. Breast\n2. Crawl\n3. Butterfly ");
-        ButterflyDisciplin b = new ButterflyDisciplin();
-        BreastDiscipline be = new BreastDiscipline();
-        CrawlDisciplin c = new CrawlDisciplin();
-        switch (readInt()){
-            case 1:
-                be.printBreastSwimmers();
-                ;
-                break;
-            case 2:
-                c.printCrawlSwimmers();
-
-                break;
-            case 3:
-                b.printButterflySwimmers();
-
-                break;
-            default:
-        }
     }
 
     //Method that should print the elements i the butterfly - arraylist

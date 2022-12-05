@@ -14,9 +14,6 @@ public class Main {
                 "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
-        BreastDiscipline breast = new BreastDiscipline();
-        ButterflyDisciplin bu = new ButterflyDisciplin();
-        breast.createBreastSvimmer();
         do {
             controller.printMenu();
             switch (controller.readInt()) {
@@ -27,9 +24,7 @@ public class Main {
                     competitiveSwimmer.competitiveSvimmer();
                     break;
                 case 3:
-                    breast.printBreastSwimmers();
-                    CompetitiveSwimmer breastSwimmer1 = new CompetitiveSwimmer("Julie","Hillerød","bedste dk", 12.23 );
-                    breast.createBreastSvimmer();
+
                     break;
                 case 9:
                     System.out.println("Goodbye");

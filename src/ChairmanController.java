@@ -29,9 +29,8 @@ public class ChairmanController {
         trainerController.chooseTrainer();
         System.out.println("----------RECEIPT----------");
         System.out.printf("Chosen disciplines:\nBreast swimming: " +
-                            "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s", competitiveSwimmer.returnBreast(),
-                    competitiveSwimmer.returnCrawl()
-            , competitiveSwimmer.returnButterfly(), trainerController.whichTrainerIsChosen(),
+                            "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s"
+            , trainerController.whichTrainerIsChosen(),
                 System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d\n\n" +
                             "----------------------------\n",
                     competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
