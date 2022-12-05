@@ -1,64 +1,50 @@
 import java.time.LocalDateTime;
-import java.util.Calendar;
 import java.util.Scanner;
 
 public abstract class Member {
     //Attributes-------------------------------------------------------------------------
+    // attributes
     private String name;
-    private int yearOfBirth;
+    private int memberId;
     private String dateOfBirth;
     private int age;
-    private boolean active;
-    private double debt;
-    private int balance;
-
+    private boolean isActive;
     private boolean isCompetitiveSwimmer;
 
-    private int year = Calendar.getInstance().get(Calendar.YEAR);
+    private boolean isPaid;
+
+    private String location;
+
 
     //New instance of Chairman class------------------------------------------------------
     ChairmanController chairman = new ChairmanController();
 
 
-    // new contructor with calculates age method
-    public Member()
+    public Member(String name, String dateOfBirth, boolean isActive, boolean isCompetitiveSwimmer, int numberGen)
     {
         this.name = name;
-
         this.dateOfBirth = dateOfBirth;
-
-        this.active = active;
-
+        this.location = location;
+        this.isActive = isActive;
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
+        this.memberId = numberGen;
 
-
-
-    }
-
-    public Member(String name, int yearOfBirth) {
+        calculateAge();
     }
 
     //Getters-----------------------------------------------------------------------------
     public String getName() {
         return name;
     }
-    public int getYearOfBirth() {
-        return yearOfBirth;
-    }
+
     public boolean isActive() {
-        return active;
+        return isActive;
     }
 
     public int getAge(){
         return age;
     }
 
-    public double getDebt() {
-        return debt;
-    }
-    public int getBalance() {
-        return balance;
-    }
 
     public String getDateOfBirth(){
         return dateOfBirth;
@@ -68,45 +54,46 @@ public abstract class Member {
         return isCompetitiveSwimmer;
     }
 
+    public String getLocation(){
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
     //Setters-----------------------------------------------------------------------------
     public void setName(String name) {
         this.name = name;
     }
-    public void setDebt(double debt) {
-        this.debt = debt;
-    }
-    public void setYearOfBirth(int yearOfBirth) {
-        this.yearOfBirth = yearOfBirth;
-    }
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-    public void setBalance(int balance) {
-        this.balance = balance;
+
+
+    public void setActive(boolean isActive) {
+        this.isActive = isActive;
     }
 
     public void setDateOfBirth(String dateOfBirth){
         this.dateOfBirth = dateOfBirth;
     }
 
-    public void setCompetitiveSwimmer(boolean competitiveSwimmer) {
-        this.isCompetitiveSwimmer = competitiveSwimmer;
+    public void setisCompetitiveSwimmer(boolean isCompetitiveSwimmer) {
+        this.isCompetitiveSwimmer = isCompetitiveSwimmer;
     }
 
-    //A method which checks which price the member has to pay for their membership---------
-    public void membership(){
-        if((year - yearOfBirth) > 18 && year - yearOfBirth < 60 &&  active){
-            setBalance(1600);
-        }else if(year - yearOfBirth < 18 && active) {
-            setBalance(1000);
-        }else if(year - yearOfBirth >= 60 && active) {
-            setBalance(1200);
-        }else if(year - yearOfBirth >= 60 && !active){
-            setBalance(375);
-        }else{
-            setBalance(500);
-        }
+    public void isPaid(boolean isPaid)
+    {
+        this.isPaid = isPaid;
     }
+
+    public boolean isPaid()
+    {
+        return isPaid;
+    }
+
+    public int getMemberId()
+    {
+        return memberId;
+    }
+
 
     // Method that calculates age
     public void calculateAge() {
