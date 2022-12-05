@@ -7,20 +7,13 @@ public class CompetitiveSwimmer extends Member {
     private String name;
     private String location;
     private String competition;
-
-    private boolean isSwimmingCrawl = false;
-    private boolean isSwimmingBreast = false;
-    private boolean isSwimmingButterfly = false;
-
     private TrainerController affiliatedTrainer;
     private ArrayList<CompetitiveSwimmer> butterflySvimmers;
 
 
     //Constructor overloading
-    public CompetitiveSwimmer(String name, int yearOfBirth) {
-        super(name, yearOfBirth);
+    public CompetitiveSwimmer(String name, int memberID) {
         setName(name);
-        setYearOfBirth(yearOfBirth);
         setTime(time);
     }
 
@@ -30,7 +23,6 @@ public class CompetitiveSwimmer extends Member {
         setCompetition(competition);
         setLocation(location);
         setTime(time);
-
     }
 
     public String printTrainerAsAString(){
@@ -47,12 +39,6 @@ public class CompetitiveSwimmer extends Member {
 
 
     //Getters:---------------------------------------------------------------------------
-    public boolean isSwimmingCrawl() {
-        return isSwimmingCrawl;
-    }
-    public boolean isSwimmingButterfly() {
-        return isSwimmingButterfly;
-    }
     public TrainerController getAffiliatedTrainer() {
         return affiliatedTrainer;
     }
@@ -64,9 +50,6 @@ public class CompetitiveSwimmer extends Member {
     }
     public String getName(){
         return name;
-    }
-    public boolean isSwimmingBreast() {
-        return isSwimmingBreast;
     }
     public String getCompetition() {
         return competition;
@@ -84,15 +67,6 @@ public class CompetitiveSwimmer extends Member {
     }
     public void setCompetition(String competition) {
         this.competition = competition;
-    }
-    public void setSwimmingCrawl(boolean swimmingCrawl) {
-        isSwimmingCrawl = swimmingCrawl;
-    }
-    public void setSwimmingBreast(boolean swimmingBreast) {
-        isSwimmingBreast = swimmingBreast;
-    }
-    public void setSwimmingButterfly(boolean swimmingButterfly) {
-        isSwimmingButterfly = swimmingButterfly;
     }
     public void setAffiliatedTrainer(TrainerController affiliatedTrainer) {
         this.affiliatedTrainer = affiliatedTrainer;
