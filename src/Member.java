@@ -20,7 +20,7 @@ public abstract class Member {
     ChairmanController chairman = new ChairmanController();
 
 
-    public Member(String name, String dateOfBirth, String location, boolean isActive, boolean isCompetitiveSwimmer, int numberGen)
+    public Member(String name, String dateOfBirth, boolean isActive, boolean isCompetitiveSwimmer, int numberGen)
     {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
