@@ -10,6 +10,7 @@ public abstract class Member {
     private int age;
     private boolean isActive;
     private boolean isCompetitiveSwimmer;
+
     private boolean isPaid;
 
     private String location;
@@ -76,6 +77,21 @@ public abstract class Member {
 
     public void setisCompetitiveSwimmer(boolean isCompetitiveSwimmer) {
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
+    }
+
+    public void isPaid(boolean isPaid)
+    {
+        this.isPaid = isPaid;
+    }
+
+    public boolean isPaid()
+    {
+        return isPaid;
+    }
+
+    public int getMemberId()
+    {
+        return memberId;
     }
 
 

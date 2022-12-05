@@ -1,37 +1,24 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class CompetitiveSwimmer extends Member {
+public class CompetitiveSwimmer extends Member implements Comparable<CompetitiveSwimmer>{
+
     //Attributs------------------------------------------------------------------------------------
     private double time;
-    private String name;
-    private String location;
     private String competition;
 
-    private boolean isSwimmingCrawl = false;
-    private boolean isSwimmingBreast = false;
-    private boolean isSwimmingButterfly = false;
-
-    private TrainerController affiliatedTrainer;
-    private ArrayList<CompetitiveSwimmer> butterflySvimmers;
+    private Enum SwimmingDisciplines;
 
 
-    //Constructor overloading
-    public CompetitiveSwimmer(String name, int yearOfBirth) {
-        super(name, yearOfBirth);
-        setName(name);
-        setYearOfBirth(yearOfBirth);
-        setTime(time);
+
+
+
+    public CompetitiveSwimmer(String name, String dateOfBirth, boolean isActive, boolean isCompetitiveSwimmer, int memberID)
+    {
+        super(name, dateOfBirth, isActive, isCompetitiveSwimmer, memberID);
     }
 
-    public CompetitiveSwimmer(String name, String location, String competition, double time){
-        super();
-        setName(name);
-        setCompetition(competition);
-        setLocation(location);
-        setTime(time);
 
-    }
 
     public String printTrainerAsAString(){
         TrainerController affiliatedTrainer = new TrainerController(" ");
@@ -44,59 +31,6 @@ public class CompetitiveSwimmer extends Member {
         return null;
     }
 
-
-
-    //Getters:---------------------------------------------------------------------------
-    public boolean isSwimmingCrawl() {
-        return isSwimmingCrawl;
-    }
-    public boolean isSwimmingButterfly() {
-        return isSwimmingButterfly;
-    }
-    public TrainerController getAffiliatedTrainer() {
-        return affiliatedTrainer;
-    }
-    public double getTime() {
-        return time;
-    }
-    public String getLocation() {
-        return location;
-    }
-    public String getName(){
-        return name;
-    }
-    public boolean isSwimmingBreast() {
-        return isSwimmingBreast;
-    }
-    public String getCompetition() {
-        return competition;
-    }
-
-    //Setters----------------------------------------------------------------------------
-    public void setName(String name){
-        this.name = name;
-    }
-    public void setTime(double time) {
-        this.time = time;
-    }
-    public void setLocation(String location) {
-        this.location = location;
-    }
-    public void setCompetition(String competition) {
-        this.competition = competition;
-    }
-    public void setSwimmingCrawl(boolean swimmingCrawl) {
-        isSwimmingCrawl = swimmingCrawl;
-    }
-    public void setSwimmingBreast(boolean swimmingBreast) {
-        isSwimmingBreast = swimmingBreast;
-    }
-    public void setSwimmingButterfly(boolean swimmingButterfly) {
-        isSwimmingButterfly = swimmingButterfly;
-    }
-    public void setAffiliatedTrainer(TrainerController affiliatedTrainer) {
-        this.affiliatedTrainer = affiliatedTrainer;
-    }
 
     //Method which makes sure the menu keep going after the user input is entered--------
     public boolean keepGoingMenu() {
@@ -240,4 +174,8 @@ public class CompetitiveSwimmer extends Member {
     }
 
 
+    @Override
+    public int compareTo(CompetitiveSwimmer o) {
+        return 0;
+    }
 }
