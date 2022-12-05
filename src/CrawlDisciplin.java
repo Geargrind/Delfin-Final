@@ -55,7 +55,7 @@ public class CrawlDisciplin {
 
     }
 
-
+//Ændring
 
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
