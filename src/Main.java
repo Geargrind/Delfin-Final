@@ -1,3 +1,8 @@
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class Main {
 
     //This prints the menu items out in a pretty format------------------------------------
@@ -7,7 +12,6 @@ public class Main {
             "3. Member debts \uD83D\uDCB3❌ ",
             "9. Exit program"
     };
-
     void run() { //This is where we run are code------------------------------------------
         boolean keepRunning = true;
         Controller controller = new Controller("MENU", "" +
@@ -36,8 +40,15 @@ public class Main {
         } while (keepRunning);
     }
 
-        public static void main (String[]args){ //The main method---------------------------
-            new Main().run(); //This makes the code in the run method run and makes sure or main method dont crash
+        public static void main (String[]args) throws FileNotFoundException { //The main method---------------------------
+
+        new Main().run(); //This makes the code in the run method run and makes sure or main method dont crash
+            Scanner sc = new Scanner(new File("motionistList.csv"));
+            ArrayList<CompetitiveSwimmer> list = new ArrayList<>();
+            sc.useDelimiter(";");
+            while(sc.hasNext()){
+            }
+            sc.close();
         }
     }
 
