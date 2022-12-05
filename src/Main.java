@@ -16,6 +16,7 @@ public class Main {
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
         BreastDiscipline breast = new BreastDiscipline();
         ButterflyDisciplin bu = new ButterflyDisciplin();
+        breast.createBreastSvimmer();
         do {
             controller.printMenu();
             switch (controller.readInt()) {
@@ -26,6 +27,9 @@ public class Main {
                     competitiveSwimmer.competitiveSvimmer();
                     break;
                 case 3:
+                    breast.printBreastSwimmers();
+                    CompetitiveSwimmer breastSwimmer1 = new CompetitiveSwimmer("Julie","Hillerød","bedste dk", 12.23 );
+                    breast.createBreastSvimmer();
                     break;
                 case 9:
                     System.out.println("Goodbye");
