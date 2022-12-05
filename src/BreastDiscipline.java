@@ -6,11 +6,11 @@ public class BreastDiscipline {
     static ArrayList<CompetitiveSwimmer> breastSwimmers = new ArrayList<>();
     public void createBreastSvimmer() {
 
-        CompetitiveSwimmer breastSwimmer1 = new CompetitiveSwimmer("Ikhra","Hillerød","bedste dk", 12.23 );
-        CompetitiveSwimmer breastSwimmer2 = new CompetitiveSwimmer("Hannan","Horens","bedst sk", 22.29 );
-        CompetitiveSwimmer breastSwimmer3 = new CompetitiveSwimmer("Lasse","Holte","vm cup", 11.29 );
-        CompetitiveSwimmer breastSwimmer4 = new CompetitiveSwimmer("Hans","Holbæk","sjællands bedst", 20.29 );
-        CompetitiveSwimmer breastSwimmer5 = new CompetitiveSwimmer("Tom","Birkerød","bedste ever", 21.29 );
+        CompetitiveSwimmer breastSwimmer1 = new CompetitiveSwimmer("Mathias","Hillerød","bedste dk", 12.23 );
+        CompetitiveSwimmer breastSwimmer2 = new CompetitiveSwimmer("Frank","Horens","bedst sk", 22.29 );
+        CompetitiveSwimmer breastSwimmer3 = new CompetitiveSwimmer("Ida","Holte","vm cup", 11.29 );
+        CompetitiveSwimmer breastSwimmer4 = new CompetitiveSwimmer("Uggi","Holbæk","sjællands bedst", 20.29 );
+        CompetitiveSwimmer breastSwimmer5 = new CompetitiveSwimmer("Wei","Birkerød","bedste ever", 21.29 );
 
         breastSwimmers.add(breastSwimmer1);
         breastSwimmers.add(breastSwimmer2);
@@ -29,7 +29,7 @@ public class BreastDiscipline {
     }
 
     public void print(){
-        System.out.println("Name        Location                           Competition                        Time                       \n ");
+        System.out.println("Name           Location       Competition              Time                       \n ");
         for (CompetitiveSwimmer breast: breastSwimmers) {
             System.out.printf("%-12s%-10s%-10s%-10s%n", breast.getName(), breast.getLocation(),
                     breast.getCompetition(),breast.getTime()
