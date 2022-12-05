@@ -41,17 +41,14 @@ public class Main {
     }
 
         public static void main (String[]args) throws FileNotFoundException { //The main method---------------------------
-          Scanner sc = new Scanner(new File("motionistList.csv"));
-            ArrayList<CompetitiveSwimmer> list = new ArrayList<>();
-          sc.useDelimiter(";");
-          while(sc.hasNext()){
-              System.out.print(sc.next());
-              test e = new test(sc.next());
-              System.out.println(e.toString());
-              System.out.println(e);
-          }
-          sc.close();
+
         new Main().run(); //This makes the code in the run method run and makes sure or main method dont crash
+            Scanner sc = new Scanner(new File("motionistList.csv"));
+            ArrayList<CompetitiveSwimmer> list = new ArrayList<>();
+            sc.useDelimiter(";");
+            while(sc.hasNext()){
+            }
+            sc.close();
         }
     }
 
