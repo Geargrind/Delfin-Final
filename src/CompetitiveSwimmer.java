@@ -106,14 +106,6 @@ public class CompetitiveSwimmer extends Member {
             }
         } while (keepGoingMenu());
     }
-
-
-
-
-
-
-
-
     //Method which print a submenu from '2. Competitive swimmers'-------------------------
     public void competitiveSvimmer(){
         System.out.println("Please choose either:\n1. Swimming disciplines\n2. Top five swimmers");

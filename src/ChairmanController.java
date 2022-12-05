@@ -1,7 +1,6 @@
 import java.util.Scanner;
 
 public class ChairmanController {
-
     //A method which print a submenu to register whoch type of member----------------------
     public void registerMember(){
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
@@ -14,7 +13,6 @@ public class ChairmanController {
                 break;
             }
         }
-
     //Method which creates a competitive-swimmer member------------------------------------
     public void createCompetitiveSwimmer(){
         TrainerController trainerController = new TrainerController(" ");
@@ -38,7 +36,6 @@ public class ChairmanController {
         System.out.println("\n\n---Does this look correct?---");
             competitiveSwimmer.yesOrNo();
         }
-
     //Method which creates a motionist member-------------------------------------------
     public void createMotionist(){
         Motionist motionist = new Motionist();
@@ -52,24 +49,17 @@ public class ChairmanController {
                     motionist.getName(), motionist.getYearOfBirth(),motionist.membershipType(), motionist.getBalance());
             motionist.yesOrNo();
         }
-
     //Method with a login system for Chairman only----------------------------------------------
     public void loginChairman() { //Ejerskab: Ikhra & Hannan
-
         String s = "";
         String p = "";
         Scanner in = new Scanner(System.in);
         int counter = 0;
-
         while (true) {
-
             System.out.println("Please enter your username:");
             s = in.nextLine();
-
             System.out.println("Please enter your password: ");
             p = in.nextLine();
-
-
             if (s.equalsIgnoreCase("Chairman") && p.equalsIgnoreCase("Chairman")) {
                 System.out.println("Succeed");
                 System.out.println("You are logged in as Chairman");
@@ -86,7 +76,6 @@ public class ChairmanController {
         }
 
     }
-
     //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
@@ -104,7 +93,6 @@ public class ChairmanController {
         }
         return choice;
     }
-
     //A method which read the intput and only accepts a String otherwise et keeps running
     public String readString() {
         Scanner scanner = new Scanner(System.in);
