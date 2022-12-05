@@ -43,7 +43,7 @@ public class ButterflyDisciplin {
     }
 
     public void print(){
-        System.out.println("Name        Location                           Competition                        Time                       \n ");
+        System.out.println("Name           Location       Competition              Time                       \n ");
         for (CompetitiveSwimmer butterfly : createButterflySvimmer()) {
 
             System.out.printf("%-12s%-10s%-10s%-10s%n", butterfly.getName(), butterfly.getLocation(),

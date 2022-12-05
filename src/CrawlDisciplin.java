@@ -39,10 +39,10 @@ public class CrawlDisciplin {
     }
 
     public void print(){
-        System.out.println("Name        Location              Competition              Time                       \n ");
+        System.out.println("Name           Location       Competition              Time                       \n ");
         for (CompetitiveSwimmer crawl : createCrawlSvimmer()) {
 
-            System.out.printf("%-15s%-15s%-15s%-15s%n", crawl.getName(), crawl.getLocation(),
+            System.out.printf("%-15s%-15s%-25s%-25s%n", crawl.getName(), crawl.getLocation(),
                     crawl.getCompetition(),crawl.getTime()
             );
         }

@@ -29,7 +29,7 @@ public class BreastDiscipline {
     }
 
     public void print(){
-        System.out.println("Name        Location                           Competition                        Time                       \n ");
+        System.out.println("Name           Location       Competition              Time                       \n ");
         for (CompetitiveSwimmer breast: breastSwimmers) {
             System.out.printf("%-12s%-10s%-10s%-10s%n", breast.getName(), breast.getLocation(),
                     breast.getCompetition(),breast.getTime()
