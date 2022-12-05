@@ -2,16 +2,16 @@ public class Main {
 
     //This prints the menu items out in a pretty format------------------------------------
     String[] menuItems = new String[]{
-            "1. Register member",
-            "2. Competitive swimmers",
-            "3. Member debts",
+            "1. Register member \uD83E\uDEAA ",
+            "2. Competitive swimmers \uD83E\uDD47",
+            "3. Member debts \uD83D\uDCB3❌ ",
             "9. Exit program"
     };
 
     void run() { //This is where we run are code------------------------------------------
         boolean keepRunning = true;
         Controller controller = new Controller("MENU", "" +
-                "Welcome to the dolphins swimclub!\n\nPlease choose an option:\n", menuItems);
+                "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
         BreastDiscipline breast = new BreastDiscipline();
