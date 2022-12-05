@@ -6,7 +6,6 @@ public abstract class Member {
     //Attributes-------------------------------------------------------------------------
     private String name;
     private int yearOfBirth;
-
     private String dateOfBirth;
     private int age;
     private boolean active;
