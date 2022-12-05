@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompetitiveSwimmer extends Member implements Comparable<CompetitiveSwimmer>{
@@ -9,26 +8,9 @@ public class CompetitiveSwimmer extends Member implements Comparable<Competitive
 
     private Enum SwimmingDisciplines;
 
-
-
-
-
     public CompetitiveSwimmer(String name, String dateOfBirth, boolean isActive, boolean isCompetitiveSwimmer, int memberID)
     {
         super(name, dateOfBirth, isActive, isCompetitiveSwimmer, memberID);
-    }
-
-
-
-    public String printTrainerAsAString(){
-        TrainerController affiliatedTrainer = new TrainerController(" ");
-        return affiliatedTrainer.whichTrainerIsChosen();
-    }
-
-
-    public static ArrayList<Member> butterfly() {
-        ArrayList<CompetitiveSwimmer> CompSwim1 = new ArrayList<>();
-        return null;
     }
 
 
@@ -68,12 +50,6 @@ public class CompetitiveSwimmer extends Member implements Comparable<Competitive
     }
 
 
-
-
-
-
-
-
     //Method which print a submenu from '2. Competitive swimmers'-------------------------
     public void competitiveSvimmer(){
         System.out.println("Please choose either:\n1. Swimming disciplines\n2. Top five swimmers");
@@ -106,14 +82,6 @@ public class CompetitiveSwimmer extends Member implements Comparable<Competitive
     }
 
 
-    //Same method as the one above but here we use printf for a better format
-    public void printe(){
-        for (CompetitiveSwimmer b : butterflySvimmers) {
-            System.out.printf("Name: %s\nLocation: %s\nCompetition: %f\ntime: \n\n" +
-                            "----------------------------\n",
-                    b.getLocation(), b.getCompetition(), b.getTime());
-        }
-    }
 
     //Method
     public int readInt() {
