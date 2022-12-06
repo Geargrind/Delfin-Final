@@ -1,4 +1,3 @@
-import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public abstract class Member {
@@ -10,9 +9,7 @@ public abstract class Member {
     private int age;
     private boolean isActive;
     private boolean isCompetitiveSwimmer;
-
-    private boolean isPaid;
-
+    private boolean hasPaid;
     private String location;
 
 
@@ -20,21 +17,18 @@ public abstract class Member {
     ChairmanController chairman = new ChairmanController();
 
 
-    public Member(String name, String dateOfBirth, boolean isActive, boolean isCompetitiveSwimmer, int numberGen)
+    public Member(String name)
     {
         this.name = name;
-        this.dateOfBirth = dateOfBirth;
-        this.location = location;
-        this.isActive = isActive;
-        this.isCompetitiveSwimmer = isCompetitiveSwimmer;
-        this.memberId = numberGen;
-
-        calculateAge();
     }
 
     //Getters-----------------------------------------------------------------------------
     public String getName() {
         return name;
+    }
+
+    public boolean isHasPaid() {
+        return hasPaid;
     }
 
     public boolean isActive() {
@@ -44,7 +38,6 @@ public abstract class Member {
     public int getAge(){
         return age;
     }
-
 
     public String getDateOfBirth(){
         return dateOfBirth;
@@ -66,6 +59,21 @@ public abstract class Member {
         this.name = name;
     }
 
+    public void setMemberId(int memberId) {
+        this.memberId = memberId;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setCompetitiveSwimmer(boolean competitiveSwimmer) {
+        isCompetitiveSwimmer = competitiveSwimmer;
+    }
+
+    public void setHasPaid(boolean hasPaid) {
+        this.hasPaid = hasPaid;
+    }
 
     public void setActive(boolean isActive) {
         this.isActive = isActive;
@@ -79,14 +87,14 @@ public abstract class Member {
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
     }
 
-    public void isPaid(boolean isPaid)
+    public void isPaid(boolean hasPaid)
     {
-        this.isPaid = isPaid;
+        this.hasPaid = hasPaid;
     }
 
-    public boolean isPaid()
+    public boolean hasPaid()
     {
-        return isPaid;
+        return hasPaid;
     }
 
     public int getMemberId()
@@ -96,7 +104,7 @@ public abstract class Member {
 
 
     // Method that calculates age
-    public void calculateAge() {
+    /*public void calculateAge() {
 
         int currentYear = LocalDateTime.now().getYear();
         int currentMonth = LocalDateTime.now().getMonthValue();
@@ -111,6 +119,7 @@ public abstract class Member {
         else
             age = currentYear - year - 1;
     }
+     */
 
     //Method which sets a member to active or passive membership--------------------------
     public void whichMembership(){
@@ -130,6 +139,7 @@ public abstract class Member {
             return "Passive";
         }
     }
+
 
     //Method which asks the user if the receipt looks correct------------------------------
     public void yesOrNo(){

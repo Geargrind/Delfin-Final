@@ -26,7 +26,7 @@ public class TrainerController {
         public void viewTopFive(){
         }
 
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2);
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "2");
 
         public void chooseTrainer(){
                 System.out.println("Please choose a swimming trainer: ");

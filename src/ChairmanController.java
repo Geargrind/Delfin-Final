@@ -16,13 +16,11 @@ public class ChairmanController {
     //Method which creates a competitive-swimmer member------------------------------------
     public void createCompetitiveSwimmer(){
         TrainerController trainerController = new TrainerController(" ");
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 1999);
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "02-03-1995");
         System.out.println("Please enter name:");
         competitiveSwimmer.setName(readString());
         System.out.println("Please enter year of birth: ");
-        competitiveSwimmer.setYearOfBirth(readInt());
         competitiveSwimmer.whichMembership();
-        competitiveSwimmer.membership();
         competitiveSwimmer.chooseDiscipline();
         trainerController.chooseTrainer();
         System.out.println("----------RECEIPT----------");
@@ -31,22 +29,21 @@ public class ChairmanController {
             , trainerController.whichTrainerIsChosen(),
                 System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d\n\n" +
                             "----------------------------\n",
-                    competitiveSwimmer.getName(), competitiveSwimmer.getYearOfBirth(),
-                    competitiveSwimmer.membershipType(), competitiveSwimmer.getBalance()));
+                    competitiveSwimmer.getName(), competitiveSwimmer.getDateOfBirth(),
+                    competitiveSwimmer.membershipType()));
         System.out.println("\n\n---Does this look correct?---");
             competitiveSwimmer.yesOrNo();
         }
     //Method which creates a motionist member-------------------------------------------
     public void createMotionist(){
-        Motionist motionist = new Motionist();
+        Motionist motionist = new Motionist(" ");
         System.out.println("Please enter name:");
         motionist.setName(readString());
         System.out.println("Please enter year of birth: ");
-        motionist.setYearOfBirth(readInt());
+        motionist.setDateOfBirth(readString());
         motionist.whichMembership();
-        motionist.membership();
-        System.out.printf("Does this look correct?\nName: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d",
-                    motionist.getName(), motionist.getYearOfBirth(),motionist.membershipType(), motionist.getBalance());
+        System.out.printf("Does this look correct?\nName: %s\nYear of birth: %s\nMembership: %s\nPrice per year: %d",
+                    motionist.getName(), motionist.getDateOfBirth(),motionist.membershipType());
             motionist.yesOrNo();
         }
     //Method with a login system for Chairman only----------------------------------------------

@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CompetitiveSwimmer extends Member {
@@ -8,37 +7,40 @@ public class CompetitiveSwimmer extends Member {
     private String location;
     private String competition;
     private TrainerController affiliatedTrainer;
-    private ArrayList<CompetitiveSwimmer> butterflySvimmers;
+
+    private SwimmingDisiplines discipline;
+
+
 
 
     //Constructor overloading
-    public CompetitiveSwimmer(String name, int memberID, String dateOfBirth, boolean hasDebt) {
+    public CompetitiveSwimmer(String name, String dateOfBirth){
+        super(name);
+    }
+
+
+    public CompetitiveSwimmer(String name, int memberId, String dateOfBirth, boolean hasPaid, double time,SwimmingDisiplines discipline,
+                              String location
+    , String competition) {
+        super(name);
         setName(name);
         setTime(time);
     }
 
     public CompetitiveSwimmer(String name, String location, String competition, double time){
-        super();
+        super(name);
         setName(name);
         setCompetition(competition);
         setLocation(location);
         setTime(time);
     }
 
-    public CompetitiveSwimmer(String s, int i) {
-    }
+
 
     public String printTrainerAsAString(){
         TrainerController affiliatedTrainer = new TrainerController(" ");
         return affiliatedTrainer.whichTrainerIsChosen();
     }
-
-
-    public static ArrayList<Member> butterfly() {
-        ArrayList<CompetitiveSwimmer> CompSwim1 = new ArrayList<>();
-        return null;
-    }
-
 
 
     //Getters:---------------------------------------------------------------------------
@@ -51,6 +53,11 @@ public class CompetitiveSwimmer extends Member {
     public String getLocation() {
         return location;
     }
+
+    public SwimmingDisiplines getDiscipline() {
+        return discipline;
+    }
+
     public String getName(){
         return name;
     }
@@ -65,6 +72,11 @@ public class CompetitiveSwimmer extends Member {
     public void setTime(double time) {
         this.time = time;
     }
+
+    public void setDiscipline(SwimmingDisiplines discipline) {
+        this.discipline = discipline;
+    }
+
     public void setLocation(String location) {
         this.location = location;
     }
@@ -141,6 +153,7 @@ public class CompetitiveSwimmer extends Member {
 
 
     //Same method as the one above but here we use printf for a better format
+    /*
     public void printe(){
         for (CompetitiveSwimmer b : butterflySvimmers) {
             System.out.printf("Name: %s\nLocation: %s\nCompetition: %f\ntime: \n\n" +
@@ -148,7 +161,7 @@ public class CompetitiveSwimmer extends Member {
                     b.getLocation(), b.getCompetition(), b.getTime());
         }
     }
-
+*/
     //Method
     public int readInt() {
         Scanner scanner = new Scanner(System.in);
@@ -204,7 +217,15 @@ public class CompetitiveSwimmer extends Member {
 
     @Override
     public String toString() {
-        return " ";
+        return "\n" + "Name: " + getName() +
+                "\nID: " + getMemberId() +
+                "\nDate of birth: " + getDateOfBirth() +
+                "\nHas paid membership fee: " + isHasPaid() +
+                "\nTime: " + getTime() +
+                "\nDiscipline: " + getDiscipline() +
+                "\nLocation: " + getLocation() +
+                "\nCompetition: " + getCompetition() +
+                "\n";
     }
 
 
