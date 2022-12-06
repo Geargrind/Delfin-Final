@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Filehandler {
-public static void runFileHandler() throws FileNotFoundException {
+public void runFileHandler() throws FileNotFoundException {
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerList = new File("competitiveSwimmersList.csv");
         Scanner sc = new Scanner(competitiveSwimmerList);
@@ -33,7 +33,6 @@ public static void runFileHandler() throws FileNotFoundException {
             String competition = tokens[7];
             e.setCompetition(tokens[7]);
             competitorList.add(e);
-
             //Eksempel = int clientID = integer.parseInt(token[0]);
             //Eksempel = String = name = tokens[0]
             //EKsempel objekt = CompetitiveSwimmer e = new CompetitiveSwimmer(String name,)
@@ -41,6 +40,7 @@ public static void runFileHandler() throws FileNotFoundException {
         sc.close();
         System.out.println(competitorList.toString());
     }
+
     }
 
 
