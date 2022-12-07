@@ -1,6 +1,5 @@
 import java.io.*;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -21,9 +20,9 @@ public class ChairmanController {
     //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
     public void createCompetitiveSwimmer() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
-        TrainerController trainerController = new TrainerController(" ");
+        TrainerController trainerController = new TrainerController();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "02-03-1995");
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
         System.out.println("Please enter name:");
         competitiveSwimmer.setName(readString());
         System.out.println("Please enter Member ID: ");
@@ -38,14 +37,15 @@ public class ChairmanController {
         competitiveSwimmer.chooseDiscipline();
         competitiveSwimmer.chooseLocation();
         competitiveSwimmer.chooseCompetition();
+        competitiveSwimmer.chooseTrainer();
         System.out.println();
         System.out.println("----------RECEIPT----------");
         System.out.printf("Name: %s\nMember ID: %d\nDate of birth: %s\nMembership: %s\nHas the member paid the membership fee: %b\n" +
-                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\n" +
+                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\nTrainer: %s\n" +
                             "----------------------------\n",competitiveSwimmer.getName(),competitiveSwimmer.getMemberId(),
                 competitiveSwimmer.getDateOfBirth(),competitiveSwimmer.membershipType(), competitiveSwimmer.isHasPaid(),
                 competitiveSwimmer.getTime(), competitiveSwimmer.getDiscipline(),
-                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition());
+                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition(), competitiveSwimmer.getTrainer());
 
         System.out.println("\n\n---Does this look correct?---\n");
             switch(competitiveSwimmer.yesOrNo()){
@@ -62,7 +62,8 @@ public class ChairmanController {
                             f.write(":");
                             f.write(competitiveSwimmer.getDiscipline() + ":");
                             f.write(competitiveSwimmer.getLocation() + ":");
-                            f.write(competitiveSwimmer.getCompetition()  + '\n');
+                            f.write(competitiveSwimmer.getCompetition()  + ":");
+                            f.write(competitiveSwimmer.getTrainer() + "\n");
                         }
                     } catch (IOException e) {
                         System.out.println("I/O Exception: " + e.getMessage());
@@ -107,6 +108,9 @@ public class ChairmanController {
                    break;
            }
         }
+
+
+
     //Method with a login system for Chairman only----------------------------------------------
     public void loginChairman() { //Ejerskab: Ikhra & Hannan
         String s = "";
@@ -135,15 +139,7 @@ public class ChairmanController {
 
     }
 
-    public void sortCompetitiveSwimmers() throws FileNotFoundException {
-        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-        for (int i = 0; i < competitiveSwimmers.size(); i++) {
-            competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::getDiscipline).thenComparing(CompetitiveSwimmer::getTime));
-        }
-        for ( CompetitiveSwimmer e : competitiveSwimmers ) {
-            System.out.printf("\nName: %-10s\nDiscipline: %s\nTime: %.2f\n", e.getName(), e.getDiscipline(), e.getTime());
-        }
-    }
+
     //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);

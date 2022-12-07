@@ -32,6 +32,10 @@ public abstract class Member {
         this.dateOfBirth = dateOfBirth;
     }
 
+    public Member() {
+
+    }
+
     //Getters-----------------------------------------------------------------------------
     public String getName() {
         return name;

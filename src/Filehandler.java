@@ -1,11 +1,13 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class Filehandler{
+public class Filehandler implements Comparator<CompetitiveSwimmer> {
 public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundException {
+        TrainerController trainerController = new TrainerController();
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerFile = new File("competitiveSwimmersList.csv");
         Scanner sc = new Scanner(competitiveSwimmerFile);
@@ -22,7 +24,8 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
             String disipline = attributes[5];
             String location = attributes[6];
             String competition = attributes[7];
-            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition);
+            String trainer = attributes[8];
+            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition, trainer);
             competitorList.add(competitiveSwimmer);
             //Eksempel = int clientID = integer.parseInt(token[0]);
             //Eksempel = String = name = tokens[0]
@@ -52,6 +55,12 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
         }
         sc.close();
         return motionistList;
+    }
+
+
+    @Override
+    public int compare(CompetitiveSwimmer o1, CompetitiveSwimmer o2) {
+        return o1.getDiscipline().compareTo(o2.getDiscipline());
     }
 }
 

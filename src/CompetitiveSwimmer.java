@@ -5,10 +5,8 @@ public class CompetitiveSwimmer extends Member {
     private double time;
     private String location;
     private String competition;
-    private TrainerController affiliatedTrainer;
+    private String trainer;
     private String discipline;
-
-
 
 
     //Constructor overloading
@@ -17,28 +15,27 @@ public class CompetitiveSwimmer extends Member {
     }
 
     public CompetitiveSwimmer(String name, int memberId, String dateOfBirth, boolean hasPaid, double time, String disipline,
-                              String location, String competition) {
+                              String location, String competition, String trainer) {
         super(name, memberId, hasPaid, dateOfBirth);
         this.time = time;
         this.location = location;
         this.competition = competition;
         this.discipline = disipline;
+        this.trainer = trainer;
     }
 
-
-
-    public String printTrainerAsAString(){
-        TrainerController affiliatedTrainer = new TrainerController(" ");
-        return affiliatedTrainer.whichTrainerIsChosen();
+    public CompetitiveSwimmer() {
+        super();
     }
+
 
 
     //Getters:---------------------------------------------------------------------------
 
-    public TrainerController getAffiliatedTrainer() {
-        return affiliatedTrainer;
-    }
 
+    public String getTrainer() {
+        return trainer;
+    }
 
     public double getTime() {
         return time;
@@ -73,11 +70,9 @@ public class CompetitiveSwimmer extends Member {
         this.competition = competition;
     }
 
-    public void setAffiliatedTrainer(TrainerController affiliatedTrainer) {
-        this.affiliatedTrainer = affiliatedTrainer;
+    public void setTrainer(String trainer) {
+        this.trainer = trainer;
     }
-
-
 
     //Method which makes sure the menu keep going after the user input is entered--------
     public boolean keepGoingMenu() {
@@ -94,7 +89,22 @@ public class CompetitiveSwimmer extends Member {
         }
         return keepGoing;
     }
+    public void chooseTrainer(){
+        System.out.println("Please choose a swimming trainer: ");
+        System.out.println("1. Niels Jørgensen\n2. Thomas Nielsen\n3. John Madsen");
+        switch (readInt()){
+            case 1:
+                setTrainer("Niels Jørgensen");
+                break;
+            case 2:
+              setTrainer("Thomas Nielsen");
+                break;
+            case 3:
+                setTrainer("John Madsen");
+                break;
+        }
 
+    }
     //Method which lets the user choose a discipline of the three given------------------
     public void chooseDiscipline() {
             System.out.println("Please select the swimming styles you wish to practice: ");

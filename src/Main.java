@@ -11,11 +11,10 @@ public class Main implements Comparator {
 
     //This prints the menu items out in a pretty format------------------------------------
     String[] menuItems = new String[]{
-            "1. Register member \uD83E\uDEAA ",
-            "2. Competitive swimmers \uD83E\uDD47",
-            "3. Accountant \uD83D\uDCB3❌ ",
+            "1. Chairman functions \uD83E\uDEAA ",
+            "2. Trainer functions \uD83E\uDD47",
+            "3. Accountant functions \uD83D\uDCB3❌ ",
             "4. Display motionists 🤽‍",
-            "5. Display competitive swimmers 🏊‍",
             "9. Exit program"
     };
     void run() throws FileNotFoundException { //This is where we run are code------------------------------------------
@@ -23,7 +22,8 @@ public class Main implements Comparator {
         Controller controller = new Controller("MENU", "" +
                 "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
-                CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "");
+        TrainerController trainer = new TrainerController();
+                CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
                 Filehandler filehandler = new Filehandler();
         Scanner sc2 = new Scanner(System.in);
         UserInterface ui = new UserInterface();
@@ -31,20 +31,31 @@ public class Main implements Comparator {
             controller.printMenu();
             switch (controller.readInt()) {
                 case 1:
-                   chairman.registerMember();
+                    System.out.println("1. Register Members");
+                    switch (controller.readInt()){
+                        case 1:
+                            chairman.registerMember();
+                            break;
+                    }
                     break;
                 case 2:
-                    competitiveSwimmer.competitiveSvimmer();
+                    System.out.println("1. View competitive swimmers\n2. View top swimmers");
+                    switch (controller.readInt()){
+                        case 1:
+                            List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
+                            System.out.println(competitiveSwimmers);
+                            break;
+                        case 2:
+                            trainer.sortCompetitiveSwimmers();
+                            break;
+                    }
                     break;
                 case 3:
-                    ui.accountantMenu();
+
                     break;
                 case 4:
                     List<Motionist> motionists = filehandler.getMotionistSwimmers();
                     System.out.println(motionists);
-                    break;
-                case 5:
-                    chairman.sortCompetitiveSwimmers();
                     break;
                 case 9:
                     System.out.println("Goodbye");
@@ -60,7 +71,6 @@ public class Main implements Comparator {
             //This makes the code in the run method run and makes sure or main method dont crash
             new Main().run();
         }
-
 
 
     @Override
