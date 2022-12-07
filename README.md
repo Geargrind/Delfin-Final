@@ -1,2 +1,4 @@
-# Delfin
-Projekt 2
+# Delfin - SwimmingClub 
+Projekt 2 final project
+
+Made by Contributors
