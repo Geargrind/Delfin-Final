@@ -2,7 +2,6 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
@@ -40,14 +39,15 @@ public class ChairmanController {
         competitiveSwimmer.chooseDiscipline();
         competitiveSwimmer.chooseLocation();
         competitiveSwimmer.chooseCompetition();
+        competitiveSwimmer.chooseTrainer();
         System.out.println();
         System.out.println("----------RECEIPT----------");
         System.out.printf("Name: %s\nMember ID: %d\nDate of birth: %s\nMembership: %s\nHas the member paid the membership fee: %b\n" +
-                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\n" +
+                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\nTrainer: %s\n" +
                             "----------------------------\n",competitiveSwimmer.getName(),competitiveSwimmer.getMemberId(),
                 competitiveSwimmer.getDateOfBirth(),competitiveSwimmer.membershipType(), competitiveSwimmer.isHasPaid(),
                 competitiveSwimmer.getTime(), competitiveSwimmer.getDiscipline(),
-                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition());
+                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition(), competitiveSwimmer.getTrainer());
 
         System.out.println("\n\n---Does this look correct?---\n");
             switch(competitiveSwimmer.yesOrNo()){
@@ -64,7 +64,8 @@ public class ChairmanController {
                             f.write(":");
                             f.write(competitiveSwimmer.getDiscipline() + ":");
                             f.write(competitiveSwimmer.getLocation() + ":");
-                            f.write(competitiveSwimmer.getCompetition()  + '\n');
+                            f.write(competitiveSwimmer.getCompetition()  + ":");
+                            f.write(competitiveSwimmer.getTrainer() + "\n");
                         }
                     } catch (IOException e) {
                         System.out.println("I/O Exception: " + e.getMessage());
@@ -140,15 +141,7 @@ public class ChairmanController {
 
     }
 
-    public void sortCompetitiveSwimmers() throws FileNotFoundException {
-        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-        for (int i = 0; i < competitiveSwimmers.size(); i++) {
-            competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::getDiscipline).thenComparing(CompetitiveSwimmer::getTime));
-        }
-        for ( CompetitiveSwimmer e : competitiveSwimmers ) {
-            System.out.printf("\nName: %-10s\nDiscipline: %s\nTime: %.2f\n", e.getName(), e.getDiscipline(), e.getTime());
-        }
-    }
+
     //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);

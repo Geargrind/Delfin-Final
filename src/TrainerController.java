@@ -1,11 +1,14 @@
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.List;
 import java.util.Scanner;
 
 public class TrainerController {
         //Attributes--------------------------------------------------------------------------------
-        private boolean chooseTrainer1 = false;
-        private boolean chooseTrainer2 = false;
-        private boolean chooseTrainer3 = false;
-        private String name;
+        private String trainer1 = "Niels Jørgensen";
+        private String trainer2 = "Thomas Nielsen";
+        private String trainer3 = "John Madsen";
+
 
     public TrainerController() {
 
@@ -13,59 +16,54 @@ public class TrainerController {
 
 
         //Getter and Setter------------------------------------------------------------------------
-        public String getName() {
-                return name;
-        }
-        public void setName(String name) {
-                this.name = name;
-        }
 
 
+    public String getTrainer1() {
+        return trainer1;
+    }
 
-        //Constructor------------------------------------------------------------------------------
-        public TrainerController(String name){
-                this.name = name;
-        }
+    public String getTrainer2() {
+        return trainer2;
+    }
 
-        public void viewTopFive(){
-        }
+    public String getTrainer3() {
+        return trainer3;
+    }
 
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "2");
+    public void setTrainer1(String trainer1) {
+        this.trainer1 = trainer1;
+    }
+
+    public void setTrainer2(String trainer2) {
+        this.trainer2 = trainer2;
+    }
+
+    public void setTrainer3(String trainer3) {
+        this.trainer3 = trainer3;
+    }
+
+    //Constructor------------------------------------------------------------------------------
+
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
 
         public void chooseTrainer(){
                 System.out.println("Please choose a swimming trainer: ");
                 System.out.println("1. Niels Jørgensen\n2. Thomas Nielsen\n3. John Madsen");
                 switch (readInt()){
                         case 1:
-                                TrainerController trainer1 = new TrainerController("Niels Jørgensen");
-                                competitiveSwimmer.setAffiliatedTrainer(trainer1);
-                                chooseTrainer1 = true;
-                                System.out.println(chooseTrainer1);
+                                competitiveSwimmer.setTrainer(trainer1);
                                 break;
                         case 2:
-                                TrainerController trainer2= new TrainerController("Thomas Nielsen");
-                                competitiveSwimmer.setAffiliatedTrainer(trainer2);
-                                chooseTrainer2 = true;
+                                competitiveSwimmer.setTrainer(trainer2);
                                 break;
                         case 3:
-                                TrainerController trainer3= new TrainerController("John Madsen");
-                                competitiveSwimmer.setAffiliatedTrainer(trainer3);
-                                chooseTrainer3 = true;
+                                competitiveSwimmer.setTrainer(trainer3);
                                 break;
                 }
+
         }
 
-        public String whichTrainerIsChosen() {
-                 String trainerName = "Not specified";
-         if (chooseTrainer1) {
-                 trainerName = "Niels Jørgensen";
-         } else if (chooseTrainer2) {
-                 trainerName = "Thomas Nielsen";
-         } else if (chooseTrainer3) {
-                 trainerName = "John Madsen";
-                }
-        return trainerName;
-        }
+
 
         //Method with a login system for trainer only----------------------------------------------
         public void loginTrainer() { //Ejerskab: Ikhra & Hannan
@@ -101,6 +99,17 @@ public class TrainerController {
                 }
 
         }
+
+    public void sortCompetitiveSwimmers() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
+        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
+        for (int i = 0; i < competitiveSwimmers.size(); i++) {
+            competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::getDiscipline).thenComparing(CompetitiveSwimmer::getTime));
+        }
+        for ( CompetitiveSwimmer e : competitiveSwimmers ) {
+            System.out.printf("\nName: %-10s\nDiscipline: %s\nTrainer: %s\nTime: %.2f\n", e.getName(), e.getDiscipline(), e.getTrainer(), e.getTime());
+        }
+    }
 
         //A method which read the intput and only accepts an integer otherwise et keeps running
         public int readInt() {

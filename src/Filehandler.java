@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 public class Filehandler implements Comparator<CompetitiveSwimmer> {
 public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundException {
+        TrainerController trainerController = new TrainerController();
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerFile = new File("competitiveSwimmersList.csv");
         Scanner sc = new Scanner(competitiveSwimmerFile);
@@ -23,7 +24,8 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
             String disipline = attributes[5];
             String location = attributes[6];
             String competition = attributes[7];
-            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition);
+            String trainer = attributes[8];
+            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition, trainer);
             competitorList.add(competitiveSwimmer);
             //Eksempel = int clientID = integer.parseInt(token[0]);
             //Eksempel = String = name = tokens[0]
