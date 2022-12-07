@@ -1,4 +1,6 @@
 import java.io.FileNotFoundException;
+import java.util.List;
+import java.util.Scanner;
 
 public class Main{
 
@@ -7,14 +9,18 @@ public class Main{
             "1. Register member \uD83E\uDEAA ",
             "2. Competitive swimmers \uD83E\uDD47",
             "3. Member debts \uD83D\uDCB3❌ ",
+            "4. Display motionists 🤽‍",
+            "5. Display competitive swimmers 🏊‍",
             "9. Exit program"
     };
-    void run() { //This is where we run are code------------------------------------------
+    void run() throws FileNotFoundException { //This is where we run are code------------------------------------------
         boolean keepRunning = true;
         Controller controller = new Controller("MENU", "" +
                 "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
                 CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "");
+                Filehandler filehandler = new Filehandler();
+        Scanner sc2 = new Scanner(System.in);
         do {
             controller.printMenu();
             switch (controller.readInt()) {
@@ -26,6 +32,14 @@ public class Main{
                     break;
                 case 3:
 
+                    break;
+                case 4:
+                    List<Motionist> motionists = filehandler.getMotionistSwimmers();
+                    System.out.println(motionists);
+                    break;
+                case 5:
+                    List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
+                    System.out.println(competitiveSwimmers);
                     break;
                 case 9:
                     System.out.println("Goodbye");

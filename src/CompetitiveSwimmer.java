@@ -3,36 +3,26 @@ import java.util.Scanner;
 public class CompetitiveSwimmer extends Member {
     //Attributs------------------------------------------------------------------------------------
     private double time;
-    private String name;
     private String location;
     private String competition;
     private TrainerController affiliatedTrainer;
-
-    private SwimmingDisiplines discipline;
+    private String discipline;
 
 
 
 
     //Constructor overloading
     public CompetitiveSwimmer(String name, String dateOfBirth){
-        super(name);
+        super(name, dateOfBirth);
     }
 
-
-    public CompetitiveSwimmer(String name, int memberId, String dateOfBirth, boolean hasPaid, double time,SwimmingDisiplines discipline,
-                              String location
-    , String competition) {
-        super(name);
-        setName(name);
-        setTime(time);
-    }
-
-    public CompetitiveSwimmer(String name, String location, String competition, double time){
-        super(name);
-        setName(name);
-        setCompetition(competition);
-        setLocation(location);
-        setTime(time);
+    public CompetitiveSwimmer(String name, int memberId, String dateOfBirth, boolean hasPaid, double time, String disipline,
+                              String location, String competition) {
+        super(name, memberId, hasPaid, dateOfBirth);
+        this.time = time;
+        this.location = location;
+        this.competition = competition;
+        this.discipline = disipline;
     }
 
 
@@ -44,9 +34,12 @@ public class CompetitiveSwimmer extends Member {
 
 
     //Getters:---------------------------------------------------------------------------
+
     public TrainerController getAffiliatedTrainer() {
         return affiliatedTrainer;
     }
+
+
     public double getTime() {
         return time;
     }
@@ -54,26 +47,22 @@ public class CompetitiveSwimmer extends Member {
         return location;
     }
 
-    public SwimmingDisiplines getDiscipline() {
+    public String getDiscipline() {
         return discipline;
     }
 
-    public String getName(){
-        return name;
-    }
+
     public String getCompetition() {
         return competition;
     }
 
     //Setters----------------------------------------------------------------------------
-    public void setName(String name){
-        this.name = name;
-    }
+
     public void setTime(double time) {
         this.time = time;
     }
 
-    public void setDiscipline(SwimmingDisiplines discipline) {
+    public void setDiscipline(String discipline) {
         this.discipline = discipline;
     }
 
@@ -83,9 +72,12 @@ public class CompetitiveSwimmer extends Member {
     public void setCompetition(String competition) {
         this.competition = competition;
     }
+
     public void setAffiliatedTrainer(TrainerController affiliatedTrainer) {
         this.affiliatedTrainer = affiliatedTrainer;
     }
+
+
 
     //Method which makes sure the menu keep going after the user input is entered--------
     public boolean keepGoingMenu() {
@@ -105,21 +97,19 @@ public class CompetitiveSwimmer extends Member {
 
     //Method which lets the user choose a discipline of the three given------------------
     public void chooseDiscipline() {
-        do {
             System.out.println("Please select the swimming styles you wish to practice: ");
             System.out.println("1. Breast\n2. Crawl\n3. Butterfly");
             switch (readInt()) {
                 case 1:
-
+                    setDiscipline("BREAST");
                     break;
                 case 2:
-
+                    setDiscipline("CRAWL");
                     break;
                 case 3:
-
+                    setDiscipline("BUTTERFLY");
                     break;
             }
-        } while (keepGoingMenu());
     }
     //Method which print a submenu from '2. Competitive swimmers'-------------------------
     public void competitiveSvimmer(){
@@ -136,6 +126,36 @@ public class CompetitiveSwimmer extends Member {
     //Method which prints w..
     public void swimmingsDisciplin(){
         chooseADisciplin();
+    }
+    public void chooseLocation(){
+        System.out.println("Please choose which location the competition was held at: ");
+        System.out.println("1. Hillerød\n2. København\n3. Helsingør");
+        switch (readInt()){
+            case 1:
+                setLocation("Hillerød");
+                break;
+            case 2:
+                setLocation("København");
+                break;
+            case 3:
+                setLocation("Helsingør");
+                break;
+        }
+    }
+    public void chooseCompetition(){
+        System.out.println("Please choose the competition the member has participated in:");
+        System.out.println("1. World-Cup\n2. Scandinavian-Cup\n3. Denmark-Cup");
+        switch (readInt()){
+            case 1:
+                setCompetition("World-Cup");
+                break;
+            case 2:
+                setCompetition("Scandinavian-Cup");
+                break;
+            case 3:
+                setCompetition("Denmark-Cup");
+                break;
+        }
     }
     public void topFiveSwimmer(){
         chooseADisciplin();
@@ -217,6 +237,7 @@ public class CompetitiveSwimmer extends Member {
 
     @Override
     public String toString() {
+
         return "\n" + "Name: " + getName() +
                 "\nID: " + getMemberId() +
                 "\nDate of birth: " + getDateOfBirth() +

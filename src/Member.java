@@ -1,3 +1,4 @@
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public abstract class Member {
@@ -14,12 +15,21 @@ public abstract class Member {
 
 
     //New instance of Chairman class------------------------------------------------------
-    ChairmanController chairman = new ChairmanController();
+    private ChairmanController chairman;
 
 
-    public Member(String name)
+    public Member(String name, int memberId, boolean hasPaid, String dateOfBirth)
     {
         this.name = name;
+        this.memberId = memberId;
+        this.hasPaid = hasPaid;
+        this.dateOfBirth = dateOfBirth;
+    }
+
+    public Member(String name, String dateOfBirth)
+    {
+        this.name = name;
+        this.dateOfBirth = dateOfBirth;
     }
 
     //Getters-----------------------------------------------------------------------------
@@ -142,15 +152,19 @@ public abstract class Member {
 
 
     //Method which asks the user if the receipt looks correct------------------------------
-    public void yesOrNo(){
+    public char yesOrNo() throws FileNotFoundException {
+        char answer = ' ';
         System.out.println("\nPress yes (Y) or no (N)");
         switch (readChar()){
             case 'Y':
+                answer = 'Y';
                 break;
             case 'N':
+                answer = 'N';
                 chairman.createMotionist();
                 break;
         }
+        return answer;
     }
 
     //A method which read the intput and only accepts an integer otherwise et keeps running

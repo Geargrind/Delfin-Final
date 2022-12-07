@@ -20,7 +20,7 @@ public class TrainerController {
 
         //Constructor------------------------------------------------------------------------------
         public TrainerController(String name){
-                setName(name);
+                this.name = name;
         }
 
         public void viewTopFive(){

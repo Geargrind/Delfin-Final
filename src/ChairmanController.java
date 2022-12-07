@@ -1,8 +1,13 @@
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class ChairmanController {
-    //A method which print a submenu to register whoch type of member----------------------
-    public void registerMember(){
+    //A method which print a submenu to register which type of member---------------------------------------------------
+    public void registerMember() throws FileNotFoundException {
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
         switch (readInt()){
             case 1:
@@ -13,38 +18,94 @@ public class ChairmanController {
                 break;
             }
         }
-    //Method which creates a competitive-swimmer member------------------------------------
-    public void createCompetitiveSwimmer(){
+    //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
+    public void createCompetitiveSwimmer() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
         TrainerController trainerController = new TrainerController(" ");
+        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "02-03-1995");
         System.out.println("Please enter name:");
         competitiveSwimmer.setName(readString());
-        System.out.println("Please enter year of birth: ");
+        System.out.println("Please enter Member ID: ");
+        competitiveSwimmer.setMemberId(readInt());
+        System.out.println("Please enter date of birth: ");
+        competitiveSwimmer.setDateOfBirth(readString());
         competitiveSwimmer.whichMembership();
+        System.out.println("Has the member paid the membership fee? (answer -> true or false)");
+        competitiveSwimmer.setHasPaid(readBoolean());
+        System.out.println("What is the swimmers best time?");
+        competitiveSwimmer.setTime(readDouble());
         competitiveSwimmer.chooseDiscipline();
-        trainerController.chooseTrainer();
+        competitiveSwimmer.chooseLocation();
+        competitiveSwimmer.chooseCompetition();
+        System.out.println();
         System.out.println("----------RECEIPT----------");
-        System.out.printf("Chosen disciplines:\nBreast swimming: " +
-                            "%s\nCrawl: %s\nButterfly: %s\nTrainer: %s"
-            , trainerController.whichTrainerIsChosen(),
-                System.out.printf("Name: %s\nYear of birth: %d\nMembership: %s\nPrice per year: %d\n\n" +
-                            "----------------------------\n",
-                    competitiveSwimmer.getName(), competitiveSwimmer.getDateOfBirth(),
-                    competitiveSwimmer.membershipType()));
+        System.out.printf("Name: %s\nMember ID: %d\nDate of birth: %s\nMembership: %s\nHas the member paid the membership fee: %b\n" +
+                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\n" +
+                            "----------------------------\n",competitiveSwimmer.getName(),competitiveSwimmer.getMemberId(),
+                competitiveSwimmer.getDateOfBirth(),competitiveSwimmer.membershipType(), competitiveSwimmer.isHasPaid(),
+                competitiveSwimmer.getTime(), competitiveSwimmer.getDiscipline(),
+                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition());
+
         System.out.println("\n\n---Does this look correct?---");
-            competitiveSwimmer.yesOrNo();
+            switch(competitiveSwimmer.yesOrNo()){
+                case 'Y':
+                    competitiveSwimmers.add(competitiveSwimmer);
+                    ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
+                    try {
+                        try (FileWriter f = new FileWriter("competitiveSwimmersList.csv", true)) {
+                            f.write( competitiveSwimmer.getName() + ":");
+                            f.write(competitiveSwimmer.getMemberId() + ":");
+                            f.write(competitiveSwimmer.getDateOfBirth() + ":");
+                            f.write(competitiveSwimmer.isHasPaid() + ":");
+                            f.write(Double.toString(competitiveSwimmer.getTime()));
+                            f.write(":");
+                            f.write(competitiveSwimmer.getDiscipline() + ":");
+                            f.write(competitiveSwimmer.getLocation() + ":");
+                            f.write(competitiveSwimmer.getCompetition());
+                        }
+                    } catch (IOException e) {
+                        System.out.println("I/O Exception: " + e.getMessage());
+                    }
+                    break;
+                case 'N':
+                    break;
+            };
         }
-    //Method which creates a motionist member-------------------------------------------
-    public void createMotionist(){
-        Motionist motionist = new Motionist(" ");
+    //Method which creates a motionist member & adds them to a list of motionist members--------------------------------
+    public void createMotionist() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
+        List<Motionist> motionists = filehandler.getMotionistSwimmers();
+        Motionist motionist = new Motionist(" ", " ");
         System.out.println("Please enter name:");
         motionist.setName(readString());
-        System.out.println("Please enter year of birth: ");
+        System.out.println("Please enter member ID:");
+        motionist.setMemberId(readInt());
+        System.out.println("Please enter the date of birth: ");
         motionist.setDateOfBirth(readString());
+        System.out.println("Has the member paid membership fee?");
+        motionist.setHasPaid(readBoolean());
         motionist.whichMembership();
-        System.out.printf("Does this look correct?\nName: %s\nYear of birth: %s\nMembership: %s\nPrice per year: %d",
-                    motionist.getName(), motionist.getDateOfBirth(),motionist.membershipType());
-            motionist.yesOrNo();
+        System.out.printf("Does this look correct?\nName: %s\nDate of birth: %s\nMembership: %s\nMember ID: %d\nHas paid for membership: %b\n",
+                    motionist.getName(), motionist.getDateOfBirth(),motionist.membershipType(), motionist.getMemberId(),
+                motionist.isHasPaid());
+           switch (motionist.yesOrNo()){
+               case 'Y':
+                   motionists.add(motionist);
+                   try {
+                       try (FileWriter f = new FileWriter("motionistList.csv", true)) {
+                           f.write( motionist.getName() + ":");
+                           f.write(motionist.getMemberId() + ":");
+                           f.write(motionist.getDateOfBirth() + ":");
+                           f.write(motionist.isHasPaid() + "\n");
+                       }
+                   } catch (IOException e) {
+                       System.out.println("I/O Exception: " + e.getMessage());
+                   }
+                   break;
+               case 'N':
+                   break;
+           }
         }
     //Method with a login system for Chairman only----------------------------------------------
     public void loginChairman() { //Ejerskab: Ikhra & Hannan
@@ -102,6 +163,39 @@ public class ChairmanController {
                 validChoice = true;
             } else {
                 System.err.println("Please input a string");
+                scanner.nextLine();
+            }
+        }
+        return choice2;
+    }
+    public Double readDouble() {
+        Scanner scanner = new Scanner(System.in);
+        boolean validChoice = false;
+        double choice2 = 0.0;
+        while (!validChoice) {
+            System.out.print(" ");
+            if (scanner.hasNextDouble()) {
+                choice2 = scanner.nextDouble();
+                validChoice = true;
+            } else {
+                System.err.println("Please input a double");
+                scanner.nextDouble();
+            }
+        }
+        return choice2;
+    }
+
+    public boolean readBoolean() {
+        Scanner scanner = new Scanner(System.in);
+        boolean validChoice = false;
+        Boolean choice2 = true;
+        while (!validChoice) {
+            System.out.print(" ");
+            if (scanner.hasNextLine()) {
+                choice2 = scanner.nextBoolean();
+                validChoice = true;
+            } else {
+                System.err.println("Please input a boolean");
                 scanner.nextLine();
             }
         }
