@@ -1,3 +1,7 @@
+import java.io.FileNotFoundException;
+import java.util.Comparator;
+import java.util.List;
+
 public class AccountantController {
 
     private boolean isPaid = false;
@@ -21,7 +25,25 @@ public class AccountantController {
     }
 
 
-
+    public void showPayment() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
+        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
+        List<Motionist> motionists = filehandler.getMotionistSwimmers();
+        for (int i = 0; i < competitiveSwimmers.size(); i++) {
+            competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::isHasPaid));
+        }
+        System.out.println("\n---COMPETITIVE-SWIMMERS---\n");
+        for ( CompetitiveSwimmer e : competitiveSwimmers ) {
+            System.out.printf("\nName: %-10s\nHas paid membership fee: %b\n", e.getName(), e.isHasPaid());
+        }
+        for (int i = 0; i < motionists.size(); i++) {
+            motionists.sort(Comparator.comparing(Motionist::hasPaid));
+        }
+        System.out.println("\n-----MOTIONISTS-----");
+        for ( Motionist m : motionists ) {
+            System.out.printf("\nName: %s\nHas paid membership fee: %b\n", m.getName(), m.isHasPaid());
+        }
+    }
 
 
 

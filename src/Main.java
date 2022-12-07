@@ -26,6 +26,7 @@ public class Main implements Comparator {
         Filehandler filehandler = new Filehandler();
         Scanner sc2 = new Scanner(System.in);
         UserInterface ui = new UserInterface();
+        AccountantController accountant = new AccountantController(ui);
         do {
             controller.printMenu();
             switch (controller.readInt()) {
@@ -58,7 +59,14 @@ public class Main implements Comparator {
                     }
                     break;
                 case 3:
-                    ui.accountantMenu();
+                    System.out.println("1. Show members payment status\n2. Back");
+                    switch (controller.readInt()){
+                        case 1:
+                            accountant.showPayment();
+                            break;
+                        case 2:
+                            break;
+                    }
                     break;
                 case 9:
                     System.out.println("Goodbye");
