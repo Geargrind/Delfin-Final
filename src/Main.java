@@ -13,7 +13,7 @@ public class Main implements Comparator {
     String[] menuItems = new String[]{
             "1. Register member \uD83E\uDEAA ",
             "2. Competitive swimmers \uD83E\uDD47",
-            "3. Member debts \uD83D\uDCB3❌ ",
+            "3. Accountant \uD83D\uDCB3❌ ",
             "4. Display motionists 🤽‍",
             "5. Display competitive swimmers 🏊‍",
             "9. Exit program"
@@ -37,7 +37,7 @@ public class Main implements Comparator {
                     competitiveSwimmer.competitiveSvimmer();
                     break;
                 case 3:
-
+                    ui.accountantMenu();
                     break;
                 case 4:
                     List<Motionist> motionists = filehandler.getMotionistSwimmers();

@@ -15,4 +15,18 @@ public class UserInterface {
         }
 
     }
+
+    // accountant
+
+    public void accountantMenu() {
+        System.out.println("""    
+                                
+                Logged in as Accountant
+                                
+                1) View expected income
+                2) View expected expenses
+                3) View payments pending/outstanding
+                9) Return to previous menu
+                """);
+    }
 }
