@@ -6,14 +6,14 @@ public class AccountantController {
 
     private boolean isPaid = false;
 
-    private int priceJunior = 1000;
-    private int priceSenior = 1600;
+    private double priceJunior = 1000;
+    private double priceSenior = 1600;
 
-    private int pensionAge = 60;
+    private double pensionAge = 60;
     private double pensionerDiscount = 0.75;
     private double pricePensionerActive = 1600 * pensionerDiscount;
     private double pricePensionerPassive = 500 * pensionerDiscount;
-    private int pricePassiveMember = 500;
+    private double pricePassiveMember = 500;
 
     private ChairmanController chairmanController;
     private UserInterface userInterface;
