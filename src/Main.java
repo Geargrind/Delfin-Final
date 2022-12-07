@@ -26,6 +26,7 @@ public class Main implements Comparator {
                 CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "");
                 Filehandler filehandler = new Filehandler();
         Scanner sc2 = new Scanner(System.in);
+        UserInterface ui = new UserInterface();
         do {
             controller.printMenu();
             switch (controller.readInt()) {
@@ -43,11 +44,7 @@ public class Main implements Comparator {
                     System.out.println(motionists);
                     break;
                 case 5:
-                    List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-                    for (int i = 0; i < competitiveSwimmers.size(); i++) {
-                        competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::getDiscipline).thenComparing(CompetitiveSwimmer::getTime));
-                    }
-                    System.out.println(competitiveSwimmers);
+                    chairman.sortCompetitiveSwimmers();
                     break;
                 case 9:
                     System.out.println("Goodbye");

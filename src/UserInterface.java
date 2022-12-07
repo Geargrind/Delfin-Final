@@ -1,14 +1,14 @@
-import java.util.ArrayList;
+import java.util.List;
 
 public class UserInterface {
 
 
     //method for top 5 ved ikke om den virker helt
 
-    public void displayTop5(ArrayList<CompetitiveSwimmer> disciplines, ArrayList<CompetitiveSwimmer> competitiveMembers) {
+    public void displayTop5(List<CompetitiveSwimmer> disciplines, List<CompetitiveSwimmer> competitiveSwimmers) {
         for (int i = 0; i < disciplines.size(); i++) {
             for (int j = 0; j < 5; j++) {
-                if (disciplines.get(i) == competitiveMembers.get(j))
+                if (disciplines.get(i) == competitiveSwimmers.get(j))
                     System.out.println((i + 1) + "# " + disciplines.get(i).getName() + ", ID: " + disciplines.get(i).getMemberId() + ", Time: " + disciplines.get(i).getTime());
             }
 

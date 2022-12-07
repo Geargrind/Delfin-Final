@@ -2,10 +2,12 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class ChairmanController {
+    Filehandler filehandler = new Filehandler();
     //A method which print a submenu to register which type of member---------------------------------------------------
     public void registerMember() throws FileNotFoundException {
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
@@ -28,7 +30,7 @@ public class ChairmanController {
         competitiveSwimmer.setName(readString());
         System.out.println("Please enter Member ID: ");
         competitiveSwimmer.setMemberId(readInt());
-        System.out.println("Please enter date of birth: ");
+        System.out.println("Please enter date of birth: DD-MM-YYYY");
         competitiveSwimmer.setDateOfBirth(readString());
         competitiveSwimmer.whichMembership();
         System.out.println("Has the member paid the membership fee? (answer -> true or false)");
@@ -81,9 +83,9 @@ public class ChairmanController {
         motionist.setName(readString());
         System.out.println("Please enter member ID:");
         motionist.setMemberId(readInt());
-        System.out.println("Please enter the date of birth: ");
+        System.out.println("Please enter the date of birth: DD-MM-YYYY");
         motionist.setDateOfBirth(readString());
-        System.out.println("Has the member paid membership fee?");
+        System.out.println("Has the member paid membership fee? (Answer -> true or false)");
         motionist.setHasPaid(readBoolean());
         motionist.whichMembership();
         System.out.printf("Does this look correct?\nName: %s\nDate of birth: %s\nMembership: %s\nMember ID: %d\nHas paid for membership: %b\n",
@@ -133,6 +135,16 @@ public class ChairmanController {
 
         }
 
+    }
+
+    public void sortCompetitiveSwimmers() throws FileNotFoundException {
+        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
+        for (int i = 0; i < competitiveSwimmers.size(); i++) {
+            competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::getDiscipline).thenComparing(CompetitiveSwimmer::getTime));
+        }
+        for ( CompetitiveSwimmer e : competitiveSwimmers ) {
+            System.out.printf("\nName: %-10s\nDiscipline: %s\nTime: %.2f\n", e.getName(), e.getDiscipline(), e.getTime());
+        }
     }
     //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
