@@ -13,31 +13,29 @@ public abstract class Member {
     private boolean isCompetitiveSwimmer;
     private boolean hasPaid;
     private String location;
-
     private double membershipPrice;
 
 
     //New instance of Chairman class------------------------------------------------------
     private ChairmanController chairman;
 
-
-    public Member(String name, int memberId, boolean hasPaid, String dateOfBirth)
-    {
+    //Constructor overloading
+    public Member(String name, int memberId, boolean hasPaid, String dateOfBirth) {
         this.name = name;
         this.memberId = memberId;
         this.hasPaid = hasPaid;
         this.dateOfBirth = dateOfBirth;
+        //getAge();
         calculateAge();
     }
 
-    public Member(String name, String dateOfBirth)
-    {
+    public Member(String name, String dateOfBirth, int age) {
         this.name = name;
         this.dateOfBirth = dateOfBirth;
+        this.age = age;
     }
 
-    public Member() {
-
+    public Member(){
     }
 
     //Getters-----------------------------------------------------------------------------
@@ -68,6 +66,23 @@ public abstract class Member {
             age = currentYear - year - 1;
         return age;
     }
+    /*
+     public int getAge(){
+        int currentYear = LocalDateTime.now().getYear();
+        int currentMonth = LocalDateTime.now().getMonthValue();
+        int currentDay = LocalDateTime.now().getDayOfMonth();
+
+        int year = Integer.parseInt(dateOfBirth.substring(6, 10));
+        int month = Integer.parseInt(dateOfBirth.substring(3, 5));
+        int day = Integer.parseInt(dateOfBirth.substring(0, 2));
+
+        if (currentMonth >= month && currentDay >= day)
+            age = currentYear - year;
+        else
+            age = currentYear - year - 1;
+        return age;
+    }
+     */
 
     public String getDateOfBirth(){
         return dateOfBirth;

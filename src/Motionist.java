@@ -5,10 +5,12 @@ public class Motionist extends Member {
         super(name, memberId, hasPaid, dateOfBirth);
     }
 
-    public Motionist(String name, String dateOfBirth) {
-        super(name, dateOfBirth);
+    public Motionist(String name, String dateOfBirth, int age) {
+        super(name, dateOfBirth, age);
     }
+    public Motionist(){
 
+    }
 
 
     public String toString(){

@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 
@@ -7,7 +8,7 @@ public class AccountantController {
     private boolean isPaid = false;
 
     private int priceJunior = 1000;
-    private int priceSenior = 1600;
+    private int priceSenior;
 
     private int pensionAge = 60;
     private double pensionerDiscount = 0.75;
@@ -21,29 +22,34 @@ public class AccountantController {
     public void setChairmanController(ChairmanController chairmanController) {
         this.chairmanController = chairmanController;
     }
+
     public AccountantController(UserInterface userinterface) {
         this.userInterface = userinterface;
     }
 
-    public void calculatePrice() throws FileNotFoundException {
+    public int calculatePrice() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
-        for (int i = 0; i < motionists.size()-1; i++) {
+        priceSenior = 1600;
+        ArrayList<Motionist> motionistPrice = new ArrayList<>();
+        for (int i = 0; i < motionists.size() - 1; i++) {
             if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(priceSenior);
             } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && !motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(pricePassiveMember);
-            } else if(motionists.get(i).getAge() < 18 && motionists.get(i).isActive()){
+            } else if (motionists.get(i).getAge() < 18 && motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(priceJunior);
-            } else if(motionists.get(i).getAge() < 18 && !motionists.get(i).isActive()){
+            } else if (motionists.get(i).getAge() < 18 && !motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(pricePassiveMember);
-            } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && motionists.get(i).isActive()){
+            } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(pricePensionerActive);
-            } else if((motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && !motionists.get(i).isActive())){
+            } else if ((motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && !motionists.get(i).isActive())) {
                 motionists.get(i).setMembershipPrice(pricePensionerPassive);
             }
         }
+        return 0;
     }
+
 
     public void showPayment() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
@@ -53,22 +59,20 @@ public class AccountantController {
             competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::isHasPaid));
         }
         System.out.println("\n---COMPETITIVE-SWIMMERS---\n");
-        for ( CompetitiveSwimmer e : competitiveSwimmers ) {
+        for (CompetitiveSwimmer e : competitiveSwimmers) {
             System.out.printf("\nName: %-10s\nHas paid membership fee: %b\n", e.getName(), e.isHasPaid());
         }
         for (int i = 0; i < motionists.size(); i++) {
             motionists.sort(Comparator.comparing(Motionist::hasPaid));
         }
         System.out.println("\n-----MOTIONISTS-----");
-        for ( Motionist m : motionists ) {
+        for (Motionist m : motionists) {
             System.out.printf("\nName: %s\nHas paid membership fee: %b\n", m.getName(), m.isHasPaid());
         }
+
+
     }
-
-
-
 }
-
 
 
 

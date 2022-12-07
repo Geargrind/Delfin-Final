@@ -10,8 +10,8 @@ public class CompetitiveSwimmer extends Member {
 
 
     //Constructor overloading
-    public CompetitiveSwimmer(String name, String dateOfBirth){
-        super(name, dateOfBirth);
+    public CompetitiveSwimmer(String name, String dateOfBirth, int age){
+        super(name, dateOfBirth, age);
     }
 
     public CompetitiveSwimmer(String name, int memberId, String dateOfBirth, boolean hasPaid, double time, String disipline,
@@ -29,10 +29,7 @@ public class CompetitiveSwimmer extends Member {
     }
 
 
-
     //Getters:---------------------------------------------------------------------------
-
-
     public String getTrainer() {
         return trainer;
     }
@@ -54,7 +51,6 @@ public class CompetitiveSwimmer extends Member {
     }
 
     //Setters----------------------------------------------------------------------------
-
     public void setTime(double time) {
         this.time = time;
     }
@@ -89,6 +85,7 @@ public class CompetitiveSwimmer extends Member {
         }
         return keepGoing;
     }
+
     public void chooseTrainer(){
         System.out.println("Please choose a swimming trainer: ");
         System.out.println("1. Niels Jørgensen\n2. Thomas Nielsen\n3. John Madsen");
@@ -105,6 +102,7 @@ public class CompetitiveSwimmer extends Member {
         }
 
     }
+
     //Method which lets the user choose a discipline of the three given------------------
     public void chooseDiscipline() {
             System.out.println("Please select the swimming styles you wish to practice: ");
@@ -121,6 +119,7 @@ public class CompetitiveSwimmer extends Member {
                     break;
             }
     }
+
     //Method which print a submenu from '2. Competitive swimmers'-------------------------
     public void competitiveSvimmer(){
         System.out.println("Please choose either:\n1. Swimming disciplines\n2. Top five swimmers");
@@ -133,10 +132,12 @@ public class CompetitiveSwimmer extends Member {
                 break;
         }
     }
+
     //Method which prints w..
     public void swimmingsDisciplin(){
         chooseADisciplin();
     }
+
     public void chooseLocation(){
         System.out.println("Please choose which location the competition was held at: ");
         System.out.println("1. Hillerød\n2. København\n3. Helsingør");
@@ -152,6 +153,7 @@ public class CompetitiveSwimmer extends Member {
                 break;
         }
     }
+
     public void chooseCompetition(){
         System.out.println("Please choose the competition the member has participated in:");
         System.out.println("1. World-Cup\n2. Scandinavian-Cup\n3. Denmark-Cup");
@@ -167,6 +169,7 @@ public class CompetitiveSwimmer extends Member {
                 break;
         }
     }
+
     public void topFiveSwimmer(){
         chooseADisciplin();
     }
