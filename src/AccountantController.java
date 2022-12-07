@@ -1,7 +1,6 @@
 public class AccountantController {
 
     private boolean isPaid = false;
-    private double expenses;
 
     private int priceJunior = 1000;
     private int priceSenior = 1600;
@@ -20,6 +19,7 @@ public class AccountantController {
     public AccountantController(UserInterface userinterface) {
         this.userInterface = userinterface;
     }
+
 
 
 
