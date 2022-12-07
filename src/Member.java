@@ -13,6 +13,8 @@ public abstract class Member {
     private boolean hasPaid;
     private String location;
 
+    private double membershipPrice;
+
 
     //New instance of Chairman class------------------------------------------------------
     private ChairmanController chairman;
@@ -65,12 +67,20 @@ public abstract class Member {
         return location;
     }
 
+    public double getMembershipPrice() {
+        return membershipPrice;
+    }
+
     public void setLocation(String location) {
         this.location = location;
     }
     //Setters-----------------------------------------------------------------------------
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setMembershipPrice(double membershipPrice) {
+        this.membershipPrice = membershipPrice;
     }
 
     public void setMemberId(int memberId) {
