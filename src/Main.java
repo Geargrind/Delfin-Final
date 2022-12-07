@@ -1,8 +1,13 @@
 import java.io.FileNotFoundException;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.function.Function;
+import java.util.function.ToDoubleFunction;
+import java.util.function.ToIntFunction;
+import java.util.function.ToLongFunction;
 
-public class Main{
+public class Main implements Comparator {
 
     //This prints the menu items out in a pretty format------------------------------------
     String[] menuItems = new String[]{
@@ -39,6 +44,9 @@ public class Main{
                     break;
                 case 5:
                     List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
+                    for (int i = 0; i < competitiveSwimmers.size(); i++) {
+                        competitiveSwimmers.sort(Comparator.comparing(CompetitiveSwimmer::getDiscipline).thenComparing(CompetitiveSwimmer::getTime));
+                    }
                     System.out.println(competitiveSwimmers);
                     break;
                 case 9:
@@ -56,5 +64,46 @@ public class Main{
             new Main().run();
         }
 
+
+
+    @Override
+    public int compare(Object o1, Object o2) {
+        return 0;
+    }
+
+    @Override
+    public Comparator reversed() {
+        return Comparator.super.reversed();
+    }
+
+    @Override
+    public Comparator thenComparing(Comparator other) {
+        return Comparator.super.thenComparing(other);
+    }
+
+    @Override
+    public Comparator thenComparingInt(ToIntFunction keyExtractor) {
+        return Comparator.super.thenComparingInt(keyExtractor);
+    }
+
+    @Override
+    public Comparator thenComparingLong(ToLongFunction keyExtractor) {
+        return Comparator.super.thenComparingLong(keyExtractor);
+    }
+
+    @Override
+    public Comparator thenComparingDouble(ToDoubleFunction keyExtractor) {
+        return Comparator.super.thenComparingDouble(keyExtractor);
+    }
+
+    @Override
+    public Comparator thenComparing(Function keyExtractor) {
+        return Comparator.super.thenComparing(keyExtractor);
+    }
+
+    @Override
+    public Comparator thenComparing(Function keyExtractor, Comparator keyComparator) {
+        return Comparator.super.thenComparing(keyExtractor, keyComparator);
+    }
 }
 
