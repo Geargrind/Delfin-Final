@@ -14,7 +14,6 @@ public class Main implements Comparator {
             "1. Chairman functions \uD83E\uDEAA ",
             "2. Trainer functions \uD83E\uDD47",
             "3. Accountant functions \uD83D\uDCB3❌ ",
-            "4. Display motionists 🤽‍",
             "9. Exit program"
     };
     void run() throws FileNotFoundException { //This is where we run are code------------------------------------------
@@ -23,23 +22,29 @@ public class Main implements Comparator {
                 "\uD83D\uDC2C\uD83C\uDF0AWelcome to the dolphins swimclub\uD83D\uDC2C\uD83C\uDF0A!\n\nPlease choose an option:\n", menuItems);
         ChairmanController chairman = new ChairmanController();
         TrainerController trainer = new TrainerController();
-                CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
-                Filehandler filehandler = new Filehandler();
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
+        Filehandler filehandler = new Filehandler();
         Scanner sc2 = new Scanner(System.in);
         UserInterface ui = new UserInterface();
         do {
             controller.printMenu();
             switch (controller.readInt()) {
                 case 1:
-                    System.out.println("1. Register Members");
+                    System.out.println("1. Register Members\n2. View motionists\n3. Back");
                     switch (controller.readInt()){
                         case 1:
                             chairman.registerMember();
                             break;
+                        case 2:
+                            List<Motionist> motionists = filehandler.getMotionistSwimmers();
+                            System.out.println(motionists);
+                            break;
+                        case 3:
+                            break;
                     }
                     break;
                 case 2:
-                    System.out.println("1. View competitive swimmers\n2. View top swimmers");
+                    System.out.println("1. View competitive swimmers\n2. View top swimmers\n3. Back");
                     switch (controller.readInt()){
                         case 1:
                             List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
@@ -48,14 +53,12 @@ public class Main implements Comparator {
                         case 2:
                             trainer.sortCompetitiveSwimmers();
                             break;
+                        case 3:
+                            break;
                     }
                     break;
                 case 3:
-
-                    break;
-                case 4:
-                    List<Motionist> motionists = filehandler.getMotionistSwimmers();
-                    System.out.println(motionists);
+                    ui.accountantMenu();
                     break;
                 case 9:
                     System.out.println("Goodbye");

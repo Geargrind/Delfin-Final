@@ -23,7 +23,7 @@ public class UserInterface {
         System.out.println("""    
                                 
                 Logged in as Accountant
-                                
+                             
                 1) View expected income
                 2) View expected expenses
                 3) View payments pending/outstanding
@@ -36,10 +36,13 @@ public class UserInterface {
     }
 
     public void printPaymentList(ArrayList<Member> members, int i, String paymentStatus) {
-
+        /*
         System.out.println(members.get(i).getName() + ", Payment: " +
                 members.get(i).getMembershipPrice() +
                 " kr. Payment status: " + paymentStatus);
     }
 
+         */
+
+    }
 }
