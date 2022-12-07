@@ -11,7 +11,8 @@ public class AccountantController {
 
     private int pensionAge = 60;
     private double pensionerDiscount = 0.75;
-    private double pricePensioner = 1600 * pensionerDiscount;
+    private double pricePensionerActive = 1600 * pensionerDiscount;
+    private double pricePensionerPassive = 500 * pensionerDiscount;
     private int pricePassiveMember = 500;
 
     private ChairmanController chairmanController;
@@ -32,6 +33,14 @@ public class AccountantController {
                 motionists.get(i).setMembershipPrice(priceSenior);
             } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && !motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(pricePassiveMember);
+            } else if(motionists.get(i).getAge() < 18 && motionists.get(i).isActive()){
+                motionists.get(i).setMembershipPrice(priceJunior);
+            } else if(motionists.get(i).getAge() < 18 && !motionists.get(i).isActive()){
+                motionists.get(i).setMembershipPrice(pricePassiveMember);
+            } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && motionists.get(i).isActive()){
+                motionists.get(i).setMembershipPrice(pricePensionerActive);
+            } else if((motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && !motionists.get(i).isActive())){
+                motionists.get(i).setMembershipPrice(pricePensionerPassive);
             }
         }
     }

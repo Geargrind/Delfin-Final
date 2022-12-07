@@ -27,6 +27,7 @@ public abstract class Member {
         this.memberId = memberId;
         this.hasPaid = hasPaid;
         this.dateOfBirth = dateOfBirth;
+        calculateAge();
     }
 
     public Member(String name, String dateOfBirth)
@@ -53,6 +54,18 @@ public abstract class Member {
     }
 
     public int getAge(){
+        int currentYear = LocalDateTime.now().getYear();
+        int currentMonth = LocalDateTime.now().getMonthValue();
+        int currentDay = LocalDateTime.now().getDayOfMonth();
+
+        int year = Integer.parseInt(dateOfBirth.substring(6, 10));
+        int month = Integer.parseInt(dateOfBirth.substring(3, 5));
+        int day = Integer.parseInt(dateOfBirth.substring(0, 2));
+
+        if (currentMonth >= month && currentDay >= day)
+            age = currentYear - year;
+        else
+            age = currentYear - year - 1;
         return age;
     }
 
@@ -129,7 +142,7 @@ public abstract class Member {
 
 
     // Method that calculates age
-    public void calculateAge() {
+    public int calculateAge() {
 
         int currentYear = LocalDateTime.now().getYear();
         int currentMonth = LocalDateTime.now().getMonthValue();
@@ -143,6 +156,7 @@ public abstract class Member {
             age = currentYear - year;
         else
             age = currentYear - year - 1;
+        return age;
     }
 
 
