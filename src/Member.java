@@ -1,4 +1,5 @@
 import java.io.FileNotFoundException;
+import java.time.LocalDateTime;
 import java.util.Scanner;
 
 public abstract class Member {
@@ -128,7 +129,7 @@ public abstract class Member {
 
 
     // Method that calculates age
-    /*public void calculateAge() {
+    public void calculateAge() {
 
         int currentYear = LocalDateTime.now().getYear();
         int currentMonth = LocalDateTime.now().getMonthValue();
@@ -143,7 +144,7 @@ public abstract class Member {
         else
             age = currentYear - year - 1;
     }
-     */
+
 
     //Method which sets a member to active or passive membership--------------------------
     public void whichMembership(){

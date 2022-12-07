@@ -24,6 +24,17 @@ public class AccountantController {
         this.userInterface = userinterface;
     }
 
+    public void calculatePrice() throws FileNotFoundException {
+        Filehandler filehandler = new Filehandler();
+        List<Motionist> motionists = filehandler.getMotionistSwimmers();
+        for (int i = 0; i < motionists.size()-1; i++) {
+            if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && motionists.get(i).isActive()) {
+                motionists.get(i).setMembershipPrice(priceSenior);
+            } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && !motionists.get(i).isActive()) {
+                motionists.get(i).setMembershipPrice(pricePassiveMember);
+            }
+        }
+    }
 
     public void showPayment() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();

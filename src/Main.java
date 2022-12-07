@@ -68,6 +68,15 @@ public class Main implements Comparator {
                             break;
                     }
                     break;
+                case 4:
+                    List<Motionist> motionists = filehandler.getMotionistSwimmers();
+                    for (int i = 0; i < motionists.size(); i++) {
+                        motionists.get(i).calculateAge();
+                        System.out.println(motionists.get(i).getAge());
+                        accountant.calculatePrice();
+                        System.out.println("Price: " + motionists.get(i).getMembershipPrice());
+                    }
+                    break;
                 case 9:
                     System.out.println("Goodbye");
                     keepRunning = false;
