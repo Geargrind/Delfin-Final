@@ -47,7 +47,7 @@ public class ChairmanController {
                 competitiveSwimmer.getTime(), competitiveSwimmer.getDiscipline(),
                 competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition());
 
-        System.out.println("\n\n---Does this look correct?---");
+        System.out.println("\n\n---Does this look correct?---\n");
             switch(competitiveSwimmer.yesOrNo()){
                 case 'Y':
                     competitiveSwimmers.add(competitiveSwimmer);
@@ -62,7 +62,7 @@ public class ChairmanController {
                             f.write(":");
                             f.write(competitiveSwimmer.getDiscipline() + ":");
                             f.write(competitiveSwimmer.getLocation() + ":");
-                            f.write(competitiveSwimmer.getCompetition());
+                            f.write(competitiveSwimmer.getCompetition()  + '\n');
                         }
                     } catch (IOException e) {
                         System.out.println("I/O Exception: " + e.getMessage());
