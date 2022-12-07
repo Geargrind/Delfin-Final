@@ -1,10 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
-public class Filehandler{
+public class Filehandler implements Comparator<CompetitiveSwimmer> {
 public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundException {
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerFile = new File("competitiveSwimmersList.csv");
@@ -52,6 +53,12 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
         }
         sc.close();
         return motionistList;
+    }
+
+
+    @Override
+    public int compare(CompetitiveSwimmer o1, CompetitiveSwimmer o2) {
+        return o1.getDiscipline().compareTo(o2.getDiscipline());
     }
 }
 

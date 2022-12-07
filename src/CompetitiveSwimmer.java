@@ -9,8 +9,6 @@ public class CompetitiveSwimmer extends Member {
     private String discipline;
 
 
-
-
     //Constructor overloading
     public CompetitiveSwimmer(String name, String dateOfBirth){
         super(name, dateOfBirth);
@@ -25,6 +23,9 @@ public class CompetitiveSwimmer extends Member {
         this.discipline = disipline;
     }
 
+    public CompetitiveSwimmer() {
+        super();
+    }
 
 
     public String printTrainerAsAString(){

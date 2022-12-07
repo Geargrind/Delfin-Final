@@ -23,9 +23,9 @@ public class ChairmanController {
     //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
     public void createCompetitiveSwimmer() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
-        TrainerController trainerController = new TrainerController(" ");
+        TrainerController trainerController = new TrainerController();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", "02-03-1995");
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
         System.out.println("Please enter name:");
         competitiveSwimmer.setName(readString());
         System.out.println("Please enter Member ID: ");
@@ -109,6 +109,9 @@ public class ChairmanController {
                    break;
            }
         }
+
+
+
     //Method with a login system for Chairman only----------------------------------------------
     public void loginChairman() { //Ejerskab: Ikhra & Hannan
         String s = "";

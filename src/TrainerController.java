@@ -7,6 +7,10 @@ public class TrainerController {
         private boolean chooseTrainer3 = false;
         private String name;
 
+    public TrainerController() {
+
+    }
+
 
         //Getter and Setter------------------------------------------------------------------------
         public String getName() {
