@@ -22,10 +22,6 @@ public class Controller implements Comparator{
     public Controller() {
 
     }
-
-
-
-
     void run() throws FileNotFoundException { //This is where we run are code------------------------------------------
             boolean keepRunning = true;
 

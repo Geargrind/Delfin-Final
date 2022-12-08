@@ -34,7 +34,7 @@ public class AccountantController {
         ArrayList<Motionist> motionistPrice = new ArrayList<>();
         for (int i = 0; i < motionists.size() - 1; i++) {
             if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && motionists.get(i).isActive()) {
-                motionists.get(i).setMembershipPrice(priceSenior);
+               motionists.get(i).setMembershipPrice(priceSenior);
             } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && !motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(pricePassiveMember);
             } else if (motionists.get(i).getAge() < 18 && motionists.get(i).isActive()) {
