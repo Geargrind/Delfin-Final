@@ -5,19 +5,15 @@ import java.util.Scanner;
 
 public class TrainerController {
         //Attributes--------------------------------------------------------------------------------
-        private String trainer1 = "Niels Jørgensen";
-        private String trainer2 = "Thomas Nielsen";
-        private String trainer3 = "John Madsen";
+    private String trainer1 = "Niels Jørgensen";
+    private String trainer2 = "Thomas Nielsen";
+    private String trainer3 = "John Madsen";
 
 
     public TrainerController() {
-
     }
 
-
-        //Getter and Setter------------------------------------------------------------------------
-
-
+    //Getter and Setter------------------------------------------------------------------------
     public String getTrainer1() {
         return trainer1;
     }

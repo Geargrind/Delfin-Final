@@ -40,8 +40,8 @@ public class Controller implements Comparator{
             CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
             Filehandler filehandler = new Filehandler();
             Scanner sc2 = new Scanner(System.in);
-            UserInterface ui = new UserInterface();
-            AccountantController accountant = new AccountantController(ui);
+            AccountantController accountantController = new AccountantController();
+
             do {
                 controller.printMenu();
                 switch (controller.readInt()) {
@@ -77,7 +77,7 @@ public class Controller implements Comparator{
                         System.out.println("1. Show members payment status\n2. Back");
                         switch (controller.readInt()){
                             case 1:
-                               accountant.showPayment();
+                                accountantController.showPayment();
                                 break;
                             case 2:
                                 break;
@@ -89,7 +89,7 @@ public class Controller implements Comparator{
                         for (int i = 0; i < motionists.size(); i++) {
                             motionists.get(i).calculateAge();
                             System.out.println("Motionist number " + j++ + "\nName: " + motionists.get(i).getName() + "\nAge:" + motionists.get(i).getAge());
-                            accountant.calculatePrice();
+                            accountantController.calculatePrice();
                             System.out.println(motionists.get(i).getMembershipPrice());
 
 
@@ -106,10 +106,6 @@ public class Controller implements Comparator{
             } while (keepRunning);
         }
 
-        public static void main (String[]args) throws FileNotFoundException { //The main method---------------------------
-            //This makes the code in the run method run and makes sure or main method dont crash
-            new Controller().run();
-        }
 
 
         @Override

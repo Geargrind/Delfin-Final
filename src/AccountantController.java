@@ -8,7 +8,6 @@ public class AccountantController {
 
     private double priceJunior = 1000;
     private double priceSenior = 1600;
-
     private double pensionAge = 60;
     private double pensionerDiscount = 0.75;
     private double pricePensionerActive = 1600 * pensionerDiscount;
@@ -16,18 +15,19 @@ public class AccountantController {
     private double pricePassiveMember = 500;
 
     private ChairmanController chairmanController;
-    private UserInterface userInterface;
+
+
+
 
     public void setChairmanController(ChairmanController chairmanController) {
         this.chairmanController = chairmanController;
     }
-    public AccountantController(UserInterface userinterface) {
-        this.userInterface = userinterface;
-    }
+
 
     public void calculatePrice() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
+        List<Motionist> motionists1 = filehandler.getMotionistSwimmers();
         for (int i = 0; i < motionists.size()-1; i++) {
             if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && motionists.get(i).isActive()) {
                 motionists.get(i).setMembershipPrice(priceSenior);
@@ -42,6 +42,9 @@ public class AccountantController {
             } else if((motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && !motionists.get(i).isActive())){
                 motionists.get(i).setMembershipPrice(pricePensionerPassive);
             }
+
+            motionists1.add(motionists.get(i));
+
         }
     }
 

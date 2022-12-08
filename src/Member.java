@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public abstract class Member {
     //Attributes-------------------------------------------------------------------------
-    // attributes
     private String name;
     private int memberId;
     private String dateOfBirth;
@@ -145,13 +144,11 @@ public abstract class Member {
         this.hasPaid = hasPaid;
     }
 
-    public boolean hasPaid()
-    {
+    public boolean hasPaid() {
         return hasPaid;
     }
 
-    public int getMemberId()
-    {
+    public int getMemberId() {
         return memberId;
     }
 
