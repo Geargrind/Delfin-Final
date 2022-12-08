@@ -6,7 +6,7 @@ import java.util.Scanner;
 public class ChairmanController {
     Filehandler filehandler = new Filehandler();
     //A method which print a submenu to register which type of member---------------------------------------------------
-    public void registerMember() throws FileNotFoundException {
+    public void registerMember() throws IOException {
         System.out.println("Please choose a type of member:\n1. Motionist\n2. Competitive swimmer");
         switch (readInt()){
             case 1:
@@ -18,34 +18,45 @@ public class ChairmanController {
             }
         }
     //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
-    public void createCompetitiveSwimmer() throws FileNotFoundException {
+    public void createCompetitiveSwimmer() throws IOException {
         Filehandler filehandler = new Filehandler();
         TrainerController trainerController = new TrainerController();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
         System.out.println("Please enter name:");
-        competitiveSwimmer.setName(readString());
+        String name = readString();
+        //competitiveSwimmer.setName(readString());
         System.out.println("Please enter Member ID: ");
-        competitiveSwimmer.setMemberId(readInt());
+        int memberId = readInt();
+        //competitiveSwimmer.setMemberId(readInt());
         System.out.println("Please enter date of birth: DD-MM-YYYY");
-        competitiveSwimmer.setDateOfBirth(readString());
-        competitiveSwimmer.whichMembership();
+        String dateOfBirth = readString();
+       // competitiveSwimmer.setDateOfBirth(readString());
         System.out.println("Has the member paid the membership fee? (answer -> true or false)");
-        competitiveSwimmer.setHasPaid(readBoolean());
+        boolean hasPaid = readBoolean();
+        //competitiveSwimmer.setHasPaid(readBoolean());
         System.out.println("What is the swimmers best time?");
-        competitiveSwimmer.setTime(readDouble());
-        competitiveSwimmer.chooseDiscipline();
-        competitiveSwimmer.chooseLocation();
-        competitiveSwimmer.chooseCompetition();
-        competitiveSwimmer.chooseTrainer();
+        double time = readDouble();
+        //competitiveSwimmer.setTime(readDouble());
+        String discipline = trainerController.chooseDiscipline();
+        String trainer = trainerController.chooseTrainer();
+        String location = trainerController.chooseLocation();
+        String competition = trainerController.chooseCompetition();
+        System.out.println("Is the member active or passive? (Answer -> true or false");
+        boolean isActive = readBoolean();
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, discipline, location, competition, trainer, isActive);
+        //competitiveSwimmer.chooseDiscipline();
+        //competitiveSwimmer.chooseLocation();
+        //competitiveSwimmer.chooseCompetition();
+        //competitiveSwimmer.chooseTrainer();
+        competitiveSwimmer.setActive(isActive);
         System.out.println();
         System.out.println("----------RECEIPT----------");
         System.out.printf("Name: %s\nMember ID: %d\nDate of birth: %s\nMembership: %s\nHas the member paid the membership fee: %b\n" +
-                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\nTrainer: %s\n" +
+                                "Time: %f\nDiscipline: %s\nLocation: %s\nCompetition: %s\nTrainer: %s\nPrice: %f\n" +
                             "----------------------------\n",competitiveSwimmer.getName(),competitiveSwimmer.getMemberId(),
                 competitiveSwimmer.getDateOfBirth(),competitiveSwimmer.membershipType(), competitiveSwimmer.isHasPaid(),
                 competitiveSwimmer.getTime(), competitiveSwimmer.getDiscipline(),
-                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition(), competitiveSwimmer.getTrainer());
+                competitiveSwimmer.getLocation(), competitiveSwimmer.getCompetition(), competitiveSwimmer.getTrainer(), competitiveSwimmer.getMembershipPrice());
 
         System.out.println("\n\n---Does this look correct?---\n");
             switch(competitiveSwimmer.yesOrNo()){
@@ -63,7 +74,8 @@ public class ChairmanController {
                             f.write(competitiveSwimmer.getDiscipline() + ":");
                             f.write(competitiveSwimmer.getLocation() + ":");
                             f.write(competitiveSwimmer.getCompetition()  + ":");
-                            f.write(competitiveSwimmer.getTrainer() + "\n");
+                            f.write(competitiveSwimmer.getTrainer() + ":");
+                            f.write(Double.toString(competitiveSwimmer.getMembershipPrice()) +"\n");
                         }
                     } catch (IOException e) {
                         System.out.println("I/O Exception: " + e.getMessage());
@@ -74,22 +86,30 @@ public class ChairmanController {
             };
         }
     //Method which creates a motionist member & adds them to a list of motionist members--------------------------------
-    public void createMotionist() throws FileNotFoundException {
+    public void createMotionist() throws IOException {
         Filehandler filehandler = new Filehandler();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
-        Motionist motionist = new Motionist();
+        AccountantController accountant = new AccountantController();
         System.out.println("Please enter name:");
-        motionist.setName(readString());
+        String name = readString();
+        //motionist.setName(readString());
         System.out.println("Please enter member ID:");
-        motionist.setMemberId(readInt());
+        int memberId = readInt();
+        //motionist.setMemberId(readInt());
         System.out.println("Please enter the date of birth: DD-MM-YYYY");
-        motionist.setDateOfBirth(readString());
+        String dateOfBirth = readString();
+        //motionist.setDateOfBirth(readString());
         System.out.println("Has the member paid membership fee? (Answer -> true or false)");
-        motionist.setHasPaid(readBoolean());
-        motionist.whichMembership();
-        System.out.printf("Does this look correct?\nName: %s\nDate of birth: %s\nMembership: %s\nMember ID: %d\nHas paid for membership: %b\n",
-                    motionist.getName(), motionist.getDateOfBirth(),motionist.membershipType(), motionist.getMemberId(),
-                motionist.isHasPaid());
+        //motionist.setHasPaid(readBoolean());
+        boolean hasPaid = readBoolean();
+        System.out.println("Is the membership active? (Answer -> true or false)");
+        boolean isActive = readBoolean();
+        Motionist motionist = new Motionist(name, memberId, dateOfBirth, hasPaid,isActive);
+        motionist.setActive(isActive);
+        System.out.printf("Does this look correct?\nName: %s\nDate of birth: %s\nMembership: %s\nMember ID: %d\nHas paid for membership: %b" +
+                        "Membership Price: %f\n",
+                    motionist.getName(), motionist.getDateOfBirth(),motionist.isActive(), motionist.getMemberId(),
+                motionist.isHasPaid(), motionist.getMembershipPrice());
            switch (motionist.yesOrNo()){
                case 'Y':
                    motionists.add(motionist);
@@ -98,7 +118,9 @@ public class ChairmanController {
                            f.write( motionist.getName() + ":");
                            f.write(motionist.getMemberId() + ":");
                            f.write(motionist.getDateOfBirth() + ":");
-                           f.write(motionist.isHasPaid() + "\n");
+                           f.write(motionist.isHasPaid() + ":");
+                                   f.write(Double.toString(motionist.getMembershipPrice()));
+                                   f.write("\n");
                        }
                    } catch (IOException e) {
                        System.out.println("I/O Exception: " + e.getMessage());
@@ -108,8 +130,6 @@ public class ChairmanController {
                    break;
            }
         }
-
-
 
     //Method with a login system for Chairman only----------------------------------------------
     public void loginChairman() { //Ejerskab: Ikhra & Hannan

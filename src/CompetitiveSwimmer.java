@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class CompetitiveSwimmer extends Member {
@@ -15,8 +16,8 @@ public class CompetitiveSwimmer extends Member {
     }
 
     public CompetitiveSwimmer(String name, int memberId, String dateOfBirth, boolean hasPaid, double time, String disipline,
-                              String location, String competition, String trainer) {
-        super(name, memberId, hasPaid, dateOfBirth);
+                              String location, String competition, String trainer, boolean isActive) throws IOException {
+        super(name, memberId, hasPaid, dateOfBirth, isActive);
         this.time = time;
         this.location = location;
         this.competition = competition;
@@ -259,6 +260,8 @@ public class CompetitiveSwimmer extends Member {
                 "\nDiscipline: " + getDiscipline() +
                 "\nLocation: " + getLocation() +
                 "\nCompetition: " + getCompetition() +
+                "\nStatus: " + membershipType() +
+                "\nPrice per year:" + getMembershipPrice() +
                 "\n";
     }
 

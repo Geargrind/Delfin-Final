@@ -1,8 +1,10 @@
+import java.io.IOException;
+
 public class Motionist extends Member {
 
-
-    public Motionist(String name, int memberId, String dateOfBirth, boolean hasPaid) {
-        super(name, memberId, hasPaid, dateOfBirth);
+    boolean isActive;
+    public Motionist(String name, int memberId, String dateOfBirth, boolean hasPaid, boolean isActive) throws IOException {
+        super(name, memberId, hasPaid, dateOfBirth, isActive);
     }
 
     public Motionist(String name, String dateOfBirth, int age) {
@@ -11,6 +13,8 @@ public class Motionist extends Member {
     public Motionist(){
 
     }
+
+    @Override
 
 
     public String toString(){

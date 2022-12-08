@@ -1,12 +1,12 @@
 import java.io.File;
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
 
 public class Filehandler implements Comparator<CompetitiveSwimmer> {
-public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundException {
+public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException {
         TrainerController trainerController = new TrainerController();
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerFile = new File("competitiveSwimmersList.csv");
@@ -25,7 +25,8 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
             String location = attributes[6];
             String competition = attributes[7];
             String trainer = attributes[8];
-            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition, trainer);
+            boolean isActive = Boolean.parseBoolean(attributes[9]);
+            CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition, trainer, isActive);
             competitorList.add(competitiveSwimmer);
             //Eksempel = int clientID = integer.parseInt(token[0]);
             //Eksempel = String = name = tokens[0]
@@ -34,7 +35,7 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
         sc.close();
         return competitorList;
     }
-    public List<Motionist> getMotionistSwimmers() throws FileNotFoundException {
+    public List<Motionist> getMotionistSwimmers() throws IOException {
         ArrayList<Motionist> motionistList = new ArrayList<>();
         File motionistFile = new File("motionistList.csv");
         Scanner sc = new Scanner(motionistFile);
@@ -46,8 +47,9 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws FileNotFoundExce
             String name = attributes[0];
             int memberId = Integer.parseInt(attributes[1]);
             String dateOfBirth = attributes[2];
-            boolean hasPaid = Boolean.parseBoolean(attributes[3]);;
-            Motionist motionistSwimmer = new Motionist(name, memberId, dateOfBirth, hasPaid);
+            boolean hasPaid = Boolean.parseBoolean(attributes[3]);
+            boolean isActive = Boolean.parseBoolean(attributes[4]);
+            Motionist motionistSwimmer = new Motionist(name, memberId, dateOfBirth, hasPaid, isActive);
             motionistList.add(motionistSwimmer);
             //Eksempel = int clientID = integer.parseInt(token[0]);
             //Eksempel = String = name = tokens[0]

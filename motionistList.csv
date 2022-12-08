@@ -1,6 +1,9 @@
-Palle:21:22-01-1995:true
-Lasse:123:11-11-1933:true
-Harry:44:12-12-1993:true
-Freddy:333:11-03-1956:true
-Josephine:900:29-07-1998:false
-Lasse:234:12-05-1997:true
+Palle:21:22-01-1995:true:true:1600
+Lasse:123:11-11-1933:true:true:1200
+Harry:44:12-12-1993:true:true:1600
+Freddy:333:11-03-1956:true:true:1200
+Josephine:900:29-07-1998:false:true:1600
+Lasse:234:12-05-1997:true:true:1600
+Harald:34:14-04-1956:true:false:375.0
+Lars:123:11-11-1999:true:1600.0
+Lars:45:01-10-1994:false:500.0

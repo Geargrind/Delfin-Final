@@ -1,4 +1,4 @@
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.Scanner;
 
@@ -20,13 +20,15 @@ public abstract class Member {
     private ChairmanController chairman;
 
     //Constructor overloading
-    public Member(String name, int memberId, boolean hasPaid, String dateOfBirth) {
+    public Member(String name, int memberId, boolean hasPaid, String dateOfBirth, boolean isActive) throws IOException {
         this.name = name;
         this.memberId = memberId;
         this.hasPaid = hasPaid;
         this.dateOfBirth = dateOfBirth;
+        this.isActive = isActive;
         //getAge();
         calculateAge();
+        calculatePrice();
     }
 
     public Member(String name, String dateOfBirth, int age) {
@@ -37,7 +39,6 @@ public abstract class Member {
 
     public Member(){
     }
-
     //Getters-----------------------------------------------------------------------------
     public String getName() {
         return name;
@@ -87,6 +88,7 @@ public abstract class Member {
     public String getDateOfBirth(){
         return dateOfBirth;
     }
+
 
     public boolean isCompetitiveSwimmer() {
         return isCompetitiveSwimmer;
@@ -174,7 +176,21 @@ public abstract class Member {
         return age;
     }
 
-
+   private  void calculatePrice(){
+        if (this.getAge() > 18 && this.getAge() < 60 && this.isActive()) {
+            this.setMembershipPrice(1600);
+        } else if (this.getAge() > 18 && this.getAge() < 60 && !this.isActive()) {
+            this.setMembershipPrice(500);
+        } else if (this.getAge() < 18 && this.isActive()) {
+            this.setMembershipPrice(1000);
+        } else if (this.getAge() < 18 && !this.isActive()) {
+            this.setMembershipPrice(500);
+        } else if (this.getAge() > 18 && this.getAge() > 60 && this.isActive()) {
+            this.setMembershipPrice(1200);
+        } else if ((this.getAge() > 18 && this.getAge() > 60 && !this.isActive())) {
+            this.setMembershipPrice(375);
+        }
+    }
     //Method which sets a member to active or passive membership--------------------------
     public void whichMembership(){
         System.out.println("1. Active\n2. Passive");
@@ -184,7 +200,6 @@ public abstract class Member {
             setActive(false);
         }
     }
-
     //Method which return the statement active or passive depending on their active or not
     public String membershipType(){
         if(isActive()){
@@ -193,10 +208,8 @@ public abstract class Member {
             return "Passive";
         }
     }
-
-
     //Method which asks the user if the receipt looks correct------------------------------
-    public char yesOrNo() throws FileNotFoundException {
+    public char yesOrNo() throws IOException {
         char answer = ' ';
         System.out.println("\nPress yes (Y) or no (N)");
         switch (readChar()){

@@ -1,4 +1,4 @@
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -8,9 +8,13 @@ public class TrainerController {
         private String trainer1 = "Niels Jørgensen";
         private String trainer2 = "Thomas Nielsen";
         private String trainer3 = "John Madsen";
+        private String discipline;
+        private String trainer;
+        private String location;
+        private String competition;
 
 
-    public TrainerController() {
+    public TrainerController() throws IOException {
 
     }
 
@@ -30,6 +34,14 @@ public class TrainerController {
         return trainer3;
     }
 
+    public String getDiscipline() {
+        return discipline;
+    }
+
+    public void setDiscipline(String discipline) {
+        this.discipline = discipline;
+    }
+
     public void setTrainer1(String trainer1) {
         this.trainer1 = trainer1;
     }
@@ -44,24 +56,8 @@ public class TrainerController {
 
     //Constructor------------------------------------------------------------------------------
 
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
+        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2, "20-10-2002", true, 12.2, " ", " ", " ", " ", true);
 
-        public void chooseTrainer(){
-                System.out.println("Please choose a swimming trainer: ");
-                System.out.println("1. Niels Jørgensen\n2. Thomas Nielsen\n3. John Madsen");
-                switch (readInt()){
-                        case 1:
-                                competitiveSwimmer.setTrainer(trainer1);
-                                break;
-                        case 2:
-                                competitiveSwimmer.setTrainer(trainer2);
-                                break;
-                        case 3:
-                                competitiveSwimmer.setTrainer(trainer3);
-                                break;
-                }
-
-        }
 
 
 
@@ -100,7 +96,7 @@ public class TrainerController {
 
         }
 
-    public void sortCompetitiveSwimmers() throws FileNotFoundException {
+    public void sortCompetitiveSwimmers() throws IOException {
         Filehandler filehandler = new Filehandler();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
         for (int i = 0; i < competitiveSwimmers.size(); i++) {
@@ -110,6 +106,75 @@ public class TrainerController {
             System.out.printf("\nName: %-10s\nDiscipline: %s\nTrainer: %s\nTime: %.2f\n", e.getName(), e.getDiscipline(), e.getTrainer(), e.getTime());
         }
     }
+
+    public String chooseTrainer(){
+        System.out.println("Please choose a swimming trainer: ");
+        System.out.println("1. Niels Jørgensen\n2. Thomas Nielsen\n3. John Madsen");
+        switch (readInt()){
+            case 1:
+                trainer = ("Niels Jørgensen");
+                break;
+            case 2:
+                trainer = ("Thomas Nielsen");
+                break;
+            case 3:
+                trainer = ("John Madsen");
+                break;
+        }
+        return trainer;
+    }
+
+    public String chooseDiscipline() {
+        System.out.println("Please select the swimming styles you wish to practice: ");
+        System.out.println("1. Breast\n2. Crawl\n3. Butterfly");
+        switch (readInt()) {
+            case 1:
+                discipline = ("BREAST");
+                break;
+            case 2:
+                discipline = ("CRAWL");
+                break;
+            case 3:
+                discipline = ("BUTTERFLY");
+                break;
+        }
+        return discipline;
+    }
+
+    public String chooseLocation(){
+        System.out.println("Please choose which location the competition was held at: ");
+        System.out.println("1. Hillerød\n2. København\n3. Helsingør");
+        switch (readInt()){
+            case 1:
+                location = ("Hillerød");
+                break;
+            case 2:
+                location = ("København");
+                break;
+            case 3:
+                location = ("Helsingør");
+                break;
+        }
+        return location;
+    }
+
+    public String chooseCompetition(){
+        System.out.println("Please choose the competition the member has participated in:");
+        System.out.println("1. World-Cup\n2. Scandinavian-Cup\n3. Denmark-Cup");
+        switch (readInt()){
+            case 1:
+                competition = ("World-Cup");
+                break;
+            case 2:
+                competition = ("Scandinavian-Cup");
+                break;
+            case 3:
+                competition = ("Denmark-Cup");
+                break;
+        }
+        return competition;
+    }
+
 
         //A method which read the intput and only accepts an integer otherwise et keeps running
         public int readInt() {

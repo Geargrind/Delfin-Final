@@ -1,4 +1,4 @@
-import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
@@ -23,7 +23,7 @@ public class Controller implements Comparator{
     public Controller() {
 
     }
-    void run() throws FileNotFoundException { //This is where we run are code------------------------------------------
+    void run() throws IOException { //This is where we run are code------------------------------------------
             boolean keepRunning = true;
 
         String[] menuItems = new String[]{ //Prints the Main menu out
@@ -74,12 +74,15 @@ public class Controller implements Comparator{
                         }
                         break;
                     case 3:
-                        System.out.println("1. Show members payment status\n2. Back");
+                        System.out.println("1. Show members in debt\n2. Show expected revenue:\n3. Back");
                         switch (controller.readInt()){
                             case 1:
                                accountant.showPayment();
                                 break;
                             case 2:
+                                accountant.showExpectedIncome();
+                                break;
+                            case 3:
                                 break;
                         }
                         break;
@@ -89,10 +92,6 @@ public class Controller implements Comparator{
                         for (int i = 0; i < motionists.size(); i++) {
                             motionists.get(i).calculateAge();
                             System.out.println("Motionist number " + j++ + "\nName: " + motionists.get(i).getName() + "\nAge:" + motionists.get(i).getAge());
-                            accountant.calculatePrice();
-                            System.out.println(motionists.get(i).getMembershipPrice());
-
-
                             System.out.println("Balance: " + motionists.get(i).getMembershipPrice()+ "\n");
                         }
                         break;
@@ -104,11 +103,6 @@ public class Controller implements Comparator{
                         System.err.println("Please enter a number");
                 }
             } while (keepRunning);
-        }
-
-        public static void main (String[]args) throws FileNotFoundException { //The main method---------------------------
-            //This makes the code in the run method run and makes sure or main method dont crash
-            new Controller().run();
         }
 
 
