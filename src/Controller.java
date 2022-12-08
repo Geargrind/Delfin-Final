@@ -40,8 +40,8 @@ public class Controller implements Comparator{
             CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer();
             Filehandler filehandler = new Filehandler();
             Scanner sc2 = new Scanner(System.in);
-            UserInterface ui = new UserInterface();
-            AccountantController accountant = new AccountantController(ui);
+
+            AccountantController accountant = new AccountantController();
             do {
                 controller.printMenu();
                 switch (controller.readInt()) {

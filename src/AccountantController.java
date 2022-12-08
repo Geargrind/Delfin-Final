@@ -16,15 +16,13 @@ public class AccountantController {
     private double pricePassiveMember = 500;
 
     private ChairmanController chairmanController;
-    private UserInterface userInterface;
+
 
     public void setChairmanController(ChairmanController chairmanController) {
         this.chairmanController = chairmanController;
     }
 
-    public AccountantController(UserInterface userinterface) {
-        this.userInterface = userinterface;
-    }
+
 
     public AccountantController() {
     }
