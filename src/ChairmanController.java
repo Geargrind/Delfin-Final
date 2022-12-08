@@ -77,7 +77,7 @@ public class ChairmanController {
     public void createMotionist() throws FileNotFoundException {
         Filehandler filehandler = new Filehandler();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
-        Motionist motionist = new Motionist(" ", " ");
+        Motionist motionist = new Motionist();
         System.out.println("Please enter name:");
         motionist.setName(readString());
         System.out.println("Please enter member ID:");
