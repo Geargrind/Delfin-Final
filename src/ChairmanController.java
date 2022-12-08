@@ -110,7 +110,6 @@ public class ChairmanController {
         }
 
 
-
     //Method with a login system for Chairman only----------------------------------------------
     public void loginChairman() { //Ejerskab: Ikhra & Hannan
         String s = "";

@@ -8,10 +8,10 @@ public class Motionist extends Member {
     public Motionist(String name, String dateOfBirth, int age) {
         super(name, dateOfBirth, age);
     }
+
     public Motionist(){
 
     }
-
 
     public String toString(){
         return "\nName: " + getName() +
