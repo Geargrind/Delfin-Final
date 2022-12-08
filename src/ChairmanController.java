@@ -17,6 +17,7 @@ public class ChairmanController {
                 break;
             }
         }
+
     //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
     public void createCompetitiveSwimmer() throws IOException {
         Filehandler filehandler = new Filehandler();
