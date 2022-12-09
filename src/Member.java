@@ -15,8 +15,6 @@ public abstract class Member {
     private double membershipPrice;
 
 
-    //New instance of Chairman class------------------------------------------------------
-    private ChairmanController chairman;
 
     //Constructor overloading
     public Member(String name, int memberId, boolean hasPaid, String dateOfBirth, boolean isActive) throws IOException {
@@ -38,6 +36,10 @@ public abstract class Member {
 
     public Member(){
     }
+
+    //New instance of Chairman class------------------------------------------------------
+    private ChairmanController chairman;
+
     //Getters-----------------------------------------------------------------------------
     public String getName() {
         return name;
@@ -121,8 +123,7 @@ public abstract class Member {
         this.isCompetitiveSwimmer = isCompetitiveSwimmer;
     }
 
-    public void isPaid(boolean hasPaid)
-    {
+    public void isPaid(boolean hasPaid) {
         this.hasPaid = hasPaid;
     }
 

@@ -147,7 +147,6 @@ public class ChairmanController {
 
     }
 
-
     //A method which read the intput and only accepts an integer otherwise et keeps running
     public int readInt() {
         Scanner scanner = new Scanner(System.in);

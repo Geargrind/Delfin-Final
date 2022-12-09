@@ -16,13 +16,13 @@ public class TrainerController {
 
     //Constructor------------------------------------------------------------------------------
 
-        CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2, "20-10-2002", true, 12.2, " ", " ", " ", " ", true);
+    CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2, "20-10-2002", true, 12.2, " ", " ", " ", " ", true);
 
-         public TrainerController() throws IOException {
+    public TrainerController() throws IOException {
          }
 
-        //Method with a login system for trainer only----------------------------------------------
-        public void loginTrainer() { //Ejerskab: Ikhra & Hannan
+    //Method with a login system for trainer only----------------------------------------------
+    public void loginTrainer() { //Ejerskab: Ikhra & Hannan
 
                 String s = "";
                 String p = "";
@@ -137,7 +137,7 @@ public class TrainerController {
 
 
         //A method which read the intput and only accepts an integer otherwise et keeps running
-        public int readInt() {
+    public int readInt() {
                 Scanner scanner = new Scanner(System.in);
                 boolean validChoice = false;
                 int choice = -1;
@@ -155,7 +155,7 @@ public class TrainerController {
         }
 
         //A method which read the intput and only accepts a String otherwise et keeps running
-        public String readString() {
+    public String readString() {
                 Scanner scanner = new Scanner(System.in);
                 boolean validChoice = false;
                 String choice2 = " ";

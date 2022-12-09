@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Filehandler implements Comparator<CompetitiveSwimmer> {
-public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException { //Ejerskab Lasse
+    public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException { //Ejerskab Lasse
         TrainerController trainerController = new TrainerController();
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerFile = new File("competitiveSwimmersList.csv");
@@ -52,7 +52,6 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException { //
         sc.close();
         return motionistList;
     }
-
 
     @Override
     public int compare(CompetitiveSwimmer o1, CompetitiveSwimmer o2) {
