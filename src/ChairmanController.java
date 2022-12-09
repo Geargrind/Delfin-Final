@@ -19,25 +19,20 @@ public class ChairmanController {
         }
 
     //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
-    public void createCompetitiveSwimmer() throws IOException {
+    public void createCompetitiveSwimmer() throws IOException { //Ejerskab Lasse
         Filehandler filehandler = new Filehandler();
         TrainerController trainerController = new TrainerController();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
         System.out.println("Please enter name:");
         String name = readString();
-        //competitiveSwimmer.setName(readString());
         System.out.println("Please enter Member ID: ");
         int memberId = readInt();
-        //competitiveSwimmer.setMemberId(readInt());
         System.out.println("Please enter date of birth: DD-MM-YYYY");
         String dateOfBirth = readString();
-       // competitiveSwimmer.setDateOfBirth(readString());
         System.out.println("Has the member paid the membership fee? (answer -> true or false)");
         boolean hasPaid = readBoolean();
-        //competitiveSwimmer.setHasPaid(readBoolean());
         System.out.println("What is the swimmers best time?");
         double time = readDouble();
-        //competitiveSwimmer.setTime(readDouble());
         String discipline = trainerController.chooseDiscipline();
         String trainer = trainerController.chooseTrainer();
         String location = trainerController.chooseLocation();
@@ -45,10 +40,6 @@ public class ChairmanController {
         System.out.println("Is the member active or passive? (Answer -> true or false");
         boolean isActive = readBoolean();
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, discipline, location, competition, trainer, isActive);
-        //competitiveSwimmer.chooseDiscipline();
-        //competitiveSwimmer.chooseLocation();
-        //competitiveSwimmer.chooseCompetition();
-        //competitiveSwimmer.chooseTrainer();
         competitiveSwimmer.setActive(isActive);
         System.out.println();
         System.out.println("----------RECEIPT----------");
@@ -87,21 +78,17 @@ public class ChairmanController {
             };
         }
     //Method which creates a motionist member & adds them to a list of motionist members--------------------------------
-    public void createMotionist() throws IOException {
+    public void createMotionist() throws IOException { //Ejerskab Lasse
         Filehandler filehandler = new Filehandler();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
         AccountantController accountant = new AccountantController();
         System.out.println("Please enter name:");
         String name = readString();
-        //motionist.setName(readString());
         System.out.println("Please enter member ID:");
         int memberId = readInt();
-        //motionist.setMemberId(readInt());
         System.out.println("Please enter the date of birth: DD-MM-YYYY");
         String dateOfBirth = readString();
-        //motionist.setDateOfBirth(readString());
         System.out.println("Has the member paid membership fee? (Answer -> true or false)");
-        //motionist.setHasPaid(readBoolean());
         boolean hasPaid = readBoolean();
         System.out.println("Is the membership active? (Answer -> true or false)");
         boolean isActive = readBoolean();

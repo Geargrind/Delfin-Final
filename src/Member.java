@@ -51,7 +51,7 @@ public abstract class Member {
         return isActive;
     }
 
-    public int getAge(){
+    public int getAge(){ //Ejerskab Susmita
         int currentYear = LocalDateTime.now().getYear();
         int currentMonth = LocalDateTime.now().getMonthValue();
         int currentDay = LocalDateTime.now().getDayOfMonth();
@@ -66,29 +66,9 @@ public abstract class Member {
             age = currentYear - year - 1;
         return age;
     }
-    /*
-     public int getAge(){
-        int currentYear = LocalDateTime.now().getYear();
-        int currentMonth = LocalDateTime.now().getMonthValue();
-        int currentDay = LocalDateTime.now().getDayOfMonth();
-
-        int year = Integer.parseInt(dateOfBirth.substring(6, 10));
-        int month = Integer.parseInt(dateOfBirth.substring(3, 5));
-        int day = Integer.parseInt(dateOfBirth.substring(0, 2));
-
-        if (currentMonth >= month && currentDay >= day)
-            age = currentYear - year;
-        else
-            age = currentYear - year - 1;
-        return age;
-    }
-     */
-
     public String getDateOfBirth(){
         return dateOfBirth;
     }
-
-
     public boolean isCompetitiveSwimmer() {
         return isCompetitiveSwimmer;
     }
@@ -156,7 +136,7 @@ public abstract class Member {
 
 
     // Method that calculates age
-    public int calculateAge() {
+    public int calculateAge() { //Ejerskab Susmita
 
         int currentYear = LocalDateTime.now().getYear();
         int currentMonth = LocalDateTime.now().getMonthValue();
@@ -173,7 +153,7 @@ public abstract class Member {
         return age;
     }
 
-   private  void calculatePrice(){
+   private  void calculatePrice(){ //Ejerskab Susmita, Lasse, Ikhra
         if (this.getAge() > 18 && this.getAge() < 60 && this.isActive()) {
             this.setMembershipPrice(1600);
         } else if (this.getAge() > 18 && this.getAge() < 60 && !this.isActive()) {
@@ -198,7 +178,7 @@ public abstract class Member {
         }
     }
     //Method which return the statement active or passive depending on their active or not
-    public String membershipType(){
+    public String membershipType(){ //Ejerskab Lasse
         if(isActive()){
             return "Active";
         }else{
@@ -206,7 +186,7 @@ public abstract class Member {
         }
     }
     //Method which asks the user if the receipt looks correct------------------------------
-    public char yesOrNo() throws IOException {
+    public char yesOrNo() throws IOException { //Ejerskab Lasse
         char answer = ' ';
         System.out.println("\nPress yes (Y) or no (N)");
         switch (readChar()){

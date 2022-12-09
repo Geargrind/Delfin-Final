@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Filehandler implements Comparator<CompetitiveSwimmer> {
-public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException {
+public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException { //Ejerskab Lasse
         TrainerController trainerController = new TrainerController();
         ArrayList<CompetitiveSwimmer> competitorList = new ArrayList<>();
         File competitiveSwimmerFile = new File("competitiveSwimmersList.csv");
@@ -28,14 +28,11 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException {
             boolean isActive = Boolean.parseBoolean(attributes[9]);
             CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(name, memberId, dateOfBirth, hasPaid, time, disipline, location, competition, trainer, isActive);
             competitorList.add(competitiveSwimmer);
-            //Eksempel = int clientID = integer.parseInt(token[0]);
-            //Eksempel = String = name = tokens[0]
-            //EKsempel objekt = CompetitiveSwimmer e = new CompetitiveSwimmer(String name,)
         }
         sc.close();
         return competitorList;
     }
-    public List<Motionist> getMotionistSwimmers() throws IOException {
+    public List<Motionist> getMotionistSwimmers() throws IOException { //Ejerskab Lasse
         ArrayList<Motionist> motionistList = new ArrayList<>();
         File motionistFile = new File("motionistList.csv");
         Scanner sc = new Scanner(motionistFile);
@@ -51,9 +48,6 @@ public List<CompetitiveSwimmer> getCompetitiveSwimmers() throws IOException {
             boolean isActive = Boolean.parseBoolean(attributes[4]);
             Motionist motionistSwimmer = new Motionist(name, memberId, dateOfBirth, hasPaid, isActive);
             motionistList.add(motionistSwimmer);
-            //Eksempel = int clientID = integer.parseInt(token[0]);
-            //Eksempel = String = name = tokens[0]
-            //EKsempel objekt = CompetitiveSwimmer e = new CompetitiveSwimmer(String name,)
         }
         sc.close();
         return motionistList;

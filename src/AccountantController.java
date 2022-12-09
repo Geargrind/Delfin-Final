@@ -23,42 +23,10 @@ public class AccountantController {
     }
 
 
-
     public AccountantController() {
     }
-/*
-    public void calculatePrice() throws IOException {
-        Filehandler filehandler = new Filehandler();
-        List<Motionist> motionists = filehandler.getMotionistSwimmers();
-        Motionist motionist = new Motionist();
 
-        for (int i = 0; i < motionists.size() - 1; i++) {
-            if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && motionists.get(i).isActive()) {
-                motionists.get(i).setMembershipPrice(1600);
-            } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() < 60 && !motionists.get(i).isActive()) {
-                motionists.get(i).setMembershipPrice(pricePassiveMember);
-            } else if (motionists.get(i).getAge() < 18 && motionists.get(i).isActive()) {
-                motionists.get(i).setMembershipPrice(priceJunior);
-            } else if (motionists.get(i).getAge() < 18 && !motionists.get(i).isActive()) {
-                motionists.get(i).setMembershipPrice(pricePassiveMember);
-            } else if (motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && motionists.get(i).isActive()) {
-                motionists.get(i).setMembershipPrice(pricePensionerActive);
-            } else if ((motionists.get(i).getAge() > 18 && motionists.get(i).getAge() > 60 && !motionists.get(i).isActive())) {
-                motionists.get(i).setMembershipPrice(pricePensionerPassive);
-            }
-        }
-        try (FileWriter f = new FileWriter("motionistList.csv", true)) {
-            f.write(Double.toString(motionist.getMembershipPrice()) + ":");
-            f.write("\n");
-        } catch (IOException e) {
-            System.out.println("I/O Exception: " + e.getMessage());
-        }
-    }
-
- */
-
-
-    public void showPayment() throws IOException {
+    public void showPayment() throws IOException {//Ejerskab Lasse
         Filehandler filehandler = new Filehandler();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
@@ -82,28 +50,8 @@ public class AccountantController {
             }
         }
     }
-
-    public void showExpectedIncome() throws IOException {
-        Filehandler filehandler = new Filehandler();
-        List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
-        List<Motionist> motionists = filehandler.getMotionistSwimmers();
-
-        for (CompetitiveSwimmer e : competitiveSwimmers) {
-            if (e.hasPaid()) {
-                double payment = 0;
-                double revenue = payment + e.getMembershipPrice();
-                System.out.printf(String.valueOf(revenue));
-            }
-            for (Motionist m : motionists) {
-                if (m.hasPaid()) {
-                    double payment = 0;
-                    double revenue = payment + e.getMembershipPrice();
-                    System.out.printf(String.valueOf(revenue));
-                }
-            }
-        }
-    }
 }
+
 
 
 

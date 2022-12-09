@@ -11,7 +11,6 @@ public class Motionist extends Member {
         super(name, dateOfBirth, age);
     }
     public Motionist(){
-
     }
 
     @Override

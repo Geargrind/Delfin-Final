@@ -14,52 +14,12 @@ public class TrainerController {
         private String competition;
 
 
-    public TrainerController() throws IOException {
-
-    }
-
-
-        //Getter and Setter------------------------------------------------------------------------
-
-
-    public String getTrainer1() {
-        return trainer1;
-    }
-
-    public String getTrainer2() {
-        return trainer2;
-    }
-
-    public String getTrainer3() {
-        return trainer3;
-    }
-
-    public String getDiscipline() {
-        return discipline;
-    }
-
-    public void setDiscipline(String discipline) {
-        this.discipline = discipline;
-    }
-
-    public void setTrainer1(String trainer1) {
-        this.trainer1 = trainer1;
-    }
-
-    public void setTrainer2(String trainer2) {
-        this.trainer2 = trainer2;
-    }
-
-    public void setTrainer3(String trainer3) {
-        this.trainer3 = trainer3;
-    }
-
     //Constructor------------------------------------------------------------------------------
 
         CompetitiveSwimmer competitiveSwimmer = new CompetitiveSwimmer(" ", 2, "20-10-2002", true, 12.2, " ", " ", " ", " ", true);
 
-
-
+         public TrainerController() throws IOException {
+         }
 
         //Method with a login system for trainer only----------------------------------------------
         public void loginTrainer() { //Ejerskab: Ikhra & Hannan
@@ -96,7 +56,7 @@ public class TrainerController {
 
         }
 
-    public void sortCompetitiveSwimmers() throws IOException {
+    public void sortCompetitiveSwimmers() throws IOException { //Ejerskab Lasse, Ikhra, Susmita
         Filehandler filehandler = new Filehandler();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
         for (int i = 0; i < competitiveSwimmers.size(); i++) {
@@ -107,7 +67,7 @@ public class TrainerController {
         }
     }
 
-    public String chooseTrainer(){
+    public String chooseTrainer(){ //Ejerskab Lasse
         System.out.println("Please choose a swimming trainer: ");
         System.out.println("1. Niels Jørgensen\n2. Thomas Nielsen\n3. John Madsen");
         switch (readInt()){
@@ -124,7 +84,7 @@ public class TrainerController {
         return trainer;
     }
 
-    public String chooseDiscipline() {
+    public String chooseDiscipline() { //Ejerskab Lasse, Ikhra
         System.out.println("Please select the swimming styles you wish to practice: ");
         System.out.println("1. Breast\n2. Crawl\n3. Butterfly");
         switch (readInt()) {
@@ -141,7 +101,7 @@ public class TrainerController {
         return discipline;
     }
 
-    public String chooseLocation(){
+    public String chooseLocation(){ //Ejerskab Lasse, Ikhra
         System.out.println("Please choose which location the competition was held at: ");
         System.out.println("1. Hillerød\n2. København\n3. Helsingør");
         switch (readInt()){
@@ -158,7 +118,7 @@ public class TrainerController {
         return location;
     }
 
-    public String chooseCompetition(){
+    public String chooseCompetition(){ //Ejerskab Lasse, Ikhra
         System.out.println("Please choose the competition the member has participated in:");
         System.out.println("1. World-Cup\n2. Scandinavian-Cup\n3. Denmark-Cup");
         switch (readInt()){

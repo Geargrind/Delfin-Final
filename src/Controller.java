@@ -74,15 +74,12 @@ public class Controller implements Comparator{
                         }
                         break;
                     case 3:
-                        System.out.println("1. Show members in debt\n2. Show expected revenue:\n3. Back");
+                        System.out.println("1. Show members in debt\n2. Back");
                         switch (controller.readInt()){
                             case 1:
                                accountant.showPayment();
                                 break;
                             case 2:
-                                accountant.showExpectedIncome();
-                                break;
-                            case 3:
                                 break;
                         }
                         break;
