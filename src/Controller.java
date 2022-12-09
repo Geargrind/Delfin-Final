@@ -23,6 +23,7 @@ public class Controller implements Comparator{
     public Controller() {
 
     }
+    //Ejerskab Lasse, Ikhra
     void run() throws IOException { //This is where we run are code------------------------------------------
             boolean keepRunning = true;
 
