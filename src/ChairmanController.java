@@ -74,6 +74,8 @@ public class ChairmanController {
                     }
                     break;
                 case 'N':
+                    Controller controller = new Controller();
+                    controller.run();
                     break;
             };
         }
@@ -94,8 +96,9 @@ public class ChairmanController {
         boolean isActive = readBoolean();
         Motionist motionist = new Motionist(name, memberId, dateOfBirth, hasPaid,isActive);
         motionist.setActive(isActive);
+        System.out.println("----------RECEIPT----------");
         System.out.printf("Does this look correct?\nName: %s\nDate of birth: %s\nMembership: %s\nMember ID: %d\nHas paid for membership: %b" +
-                        "Membership Price: %f\n",
+                        "Membership Price: %f\n" + "----------------------------\n",
                     motionist.getName(), motionist.getDateOfBirth(),motionist.isActive(), motionist.getMemberId(),
                 motionist.isHasPaid(), motionist.getMembershipPrice());
            switch (motionist.yesOrNo()){
@@ -115,6 +118,8 @@ public class ChairmanController {
                    }
                    break;
                case 'N':
+                   Controller controller = new Controller();
+                   controller.run();
                    break;
            }
         }

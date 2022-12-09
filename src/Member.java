@@ -196,7 +196,6 @@ public abstract class Member {
                 break;
             case 'N':
                 answer = 'N';
-                chairman.createMotionist();
                 break;
         }
         return answer;

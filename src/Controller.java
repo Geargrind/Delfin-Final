@@ -84,15 +84,6 @@ public class Controller implements Comparator{
                                 break;
                         }
                         break;
-                    case 4:
-                        List<Motionist> motionists = filehandler.getMotionistSwimmers();
-                        int j = 1;
-                        for (int i = 0; i < motionists.size(); i++) {
-                            motionists.get(i).calculateAge();
-                            System.out.println("Motionist number " + j++ + "\nName: " + motionists.get(i).getName() + "\nAge:" + motionists.get(i).getAge());
-                            System.out.println("Balance: " + motionists.get(i).getMembershipPrice()+ "\n");
-                        }
-                        break;
                     case 9:
                         System.out.println("Goodbye");
                         keepRunning = false;
