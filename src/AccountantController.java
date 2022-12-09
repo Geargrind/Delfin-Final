@@ -4,7 +4,6 @@ import java.util.List;
 
 public class AccountantController {
 
-    private boolean isPaid = false;
 
     private double priceJunior = 1000;
     private double priceSenior = 1600;
