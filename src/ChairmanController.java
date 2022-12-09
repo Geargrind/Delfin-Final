@@ -19,7 +19,7 @@ public class ChairmanController {
         }
 
     //Method which creates a competitive-swimmer member & adds them to a list of competitive swimmers-------------------
-    public void createCompetitiveSwimmer() throws IOException { //Ejerskab Lasse
+    public void createCompetitiveSwimmer() throws IOException { //Ejerskab Lasse, Ikhra
         Filehandler filehandler = new Filehandler();
         TrainerController trainerController = new TrainerController();
         List<CompetitiveSwimmer> competitiveSwimmers = filehandler.getCompetitiveSwimmers();
@@ -78,7 +78,7 @@ public class ChairmanController {
             };
         }
     //Method which creates a motionist member & adds them to a list of motionist members--------------------------------
-    public void createMotionist() throws IOException { //Ejerskab Lasse
+    public void createMotionist() throws IOException { //Ejerskab Lasse, Ikhra
         Filehandler filehandler = new Filehandler();
         List<Motionist> motionists = filehandler.getMotionistSwimmers();
         AccountantController accountant = new AccountantController();
